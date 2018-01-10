@@ -19,6 +19,7 @@
 		DF0BC2D12006C09000848759 /* sprayFirebug.wav in Resources */ = {isa = PBXBuildFile; fileRef = DF0BC2CA2006C09000848759 /* sprayFirebug.wav */; };
 		DF0BC2D22006C09000848759 /* sprayBug.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF0BC2CB2006C09000848759 /* sprayBug.mp3 */; };
 		DF0BC2D32006C09000848759 /* catchBugspray.wav in Resources */ = {isa = PBXBuildFile; fileRef = DF0BC2CC2006C09000848759 /* catchBugspray.wav */; };
+		DF0BC2D62006C26600848759 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0BC2D52006C26600848759 /* GameScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DF0BC2CA2006C09000848759 /* sprayFirebug.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sprayFirebug.wav; sourceTree = "<group>"; };
 		DF0BC2CB2006C09000848759 /* sprayBug.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sprayBug.mp3; sourceTree = "<group>"; };
 		DF0BC2CC2006C09000848759 /* catchBugspray.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = catchBugspray.wav; sourceTree = "<group>"; };
+		DF0BC2D52006C26600848759 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +70,9 @@
 		DF0BC2A92006BC9F00848759 /* ARniegeddon */ = {
 			isa = PBXGroup;
 			children = (
-				DF0BC2C22006C02900848759 /* Enumerations */,
 				DF0BC2C12006BECC00848759 /* Controllers */,
+				DF0BC2D42006C24400848759 /* Scenes */,
+				DF0BC2C22006C02900848759 /* Enumerations */,
 				DF0BC2C02006BEC300848759 /* Configurations */,
 				DF0BC2BF2006BEB900848759 /* Resources */,
 				DF0BC2BE2006BEA300848759 /* Storyboards */,
@@ -131,6 +134,14 @@
 				DF0BC2CC2006C09000848759 /* catchBugspray.wav */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		DF0BC2D42006C24400848759 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DF0BC2D52006C26600848759 /* GameScene.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 			files = (
 				DF0BC2AF2006BC9F00848759 /* GameViewController.swift in Sources */,
 				DF0BC2AB2006BC9F00848759 /* AppDelegate.swift in Sources */,
+				DF0BC2D62006C26600848759 /* GameScene.swift in Sources */,
 				DF0BC2C42006C03C00848759 /* SoundType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,7 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7GE4Q65N57;
-				INFOPLIST_FILE = ARniegeddon/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ARniegeddon/Configurations/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Pedro-Carrasco.ARniegeddon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -367,7 +379,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7GE4Q65N57;
-				INFOPLIST_FILE = ARniegeddon/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ARniegeddon/Configurations/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Pedro-Carrasco.ARniegeddon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
