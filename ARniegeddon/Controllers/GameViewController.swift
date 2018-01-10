@@ -6,13 +6,11 @@
 //  Copyright © 2018 Pedro Carrasco. All rights reserved.
 //
 
-import UIKit
-import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class GameViewController: UIViewController, ARSCNViewDelegate {
 
-    @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet var sceneView: ARSKView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
