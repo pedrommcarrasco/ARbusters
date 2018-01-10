@@ -16,8 +16,12 @@ class GameScene: SKScene {
 
     // MARK: - LIFECYCLE
     override func update(_ currentTime: TimeInterval) {
-        guard !isAugmentedRealityReady else { return }
-        setupWorld()
+
+        if !isAugmentedRealityReady {
+            setupWorld()
+        }
+        
+        setupLight()
     }
 
     // MARK: - SETUP
@@ -27,6 +31,22 @@ class GameScene: SKScene {
 
         isAugmentedRealityReady = true
         createAnchor(in: currentFrame)
+    }
+
+    private func setupLight() {
+        guard let currentFrame = sceneView.session.currentFrame,
+            let lightEstimate = currentFrame.lightEstimate else { return }
+
+        let neutralIntensity: CGFloat = 1000
+        let ambientIntensity = min(lightEstimate.ambientIntensity, neutralIntensity)
+
+        let blendFactor = 1 - ambientIntensity/neutralIntensity
+
+        for node in children {
+            guard let bug = node as? SKSpriteNode else { return }
+            bug.color = .black
+            bug.colorBlendFactor = blendFactor
+        }
     }
 
     private func createAnchor(in frame: ARFrame) {
