@@ -8,7 +8,7 @@
 
 import ARKit
 
-class GameViewController: UIViewController, ARSCNViewDelegate {
+class GameViewController: UIViewController {
 
     // MARK: - OUTLETS
     @IBOutlet var sceneView: ARSKView!
@@ -16,18 +16,15 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let view = self.view as? ARSKView {
-            sceneView = view
-            sceneView.delegate = self
 
-            let scene = GameScene(size: view.bounds.size)
-            scene.scaleMode = .resizeFill
-            scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        let scene = GameScene(size: sceneView.bounds.size)
+        scene.scaleMode = .resizeFill
+        scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
-            view.presentScene(scene)
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
+        sceneView.delegate = self
+        sceneView.presentScene(scene)
+        sceneView.showsFPS = true
+        sceneView.showsNodeCount = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +40,14 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
 }
 
 extension GameViewController: ARSKViewDelegate {
+
+    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
+        let bug = GamesImages.bug.asSprite()
+        bug.name = GamesImages.bug.rawValue
+
+        return bug
+    }
+
     func sessionInterruptionEnded(_ session: ARSession) {
         sceneView.session.run(session.configuration!,
                               options: [.resetTracking,
