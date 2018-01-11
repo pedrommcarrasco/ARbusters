@@ -42,10 +42,12 @@ class GameViewController: UIViewController {
 extension GameViewController: ARSKViewDelegate {
 
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-        let bug = GamesImages.bug.asSprite()
-        bug.name = GamesImages.bug.rawValue
+        guard let anchor = anchor as? Anchor, let type = anchor.type else { return nil }
 
-        return bug
+        let node = type.asSprite()
+        node.name = type.rawValue
+
+        return node
     }
 
     func sessionInterruptionEnded(_ session: ARSession) {

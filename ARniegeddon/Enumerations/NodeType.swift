@@ -8,12 +8,14 @@
 
 import ARKit
 
-enum GamesImages: String {
+enum NodeType: String {
     case bug = "bug"
     case sight = "sight"
+    case firebug = "firebug"
+    case bugspray = "bugspray"
 }
 
-extension GamesImages {
+extension NodeType {
     func asSprite() -> SKSpriteNode{
         return SKSpriteNode(imageNamed: self.rawValue)
     }

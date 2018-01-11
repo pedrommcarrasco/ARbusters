@@ -12,7 +12,7 @@ class GameScene: SKScene {
 
     // MARK: - PROPERTIES
     var sceneView: ARSKView { return view as! ARSKView}
-    var sight: SKSpriteNode! = GamesImages.sight.asSprite()
+    var sight: SKSpriteNode! = NodeType.sight.asSprite()
     let gameSize = CGSize(width: 2, height: 2)
     var isAugmentedRealityReady = false
 
@@ -66,6 +66,9 @@ class GameScene: SKScene {
     }
 
     private func createAnchor(in scene: SKScene, with frame: ARFrame, at node: SKNode) {
+        guard let name = node.name,
+            let type = NodeType(rawValue: name) else { return }
+
         var translation = matrix_identity_float4x4
 
         let x = node.position.x / scene.size.width
@@ -76,8 +79,10 @@ class GameScene: SKScene {
         translation.columns.3.z = Float(y * gameSize.height)
 
         let transform = frame.camera.transform * translation
-        let anchor = ARAnchor(transform: transform)
 
+        let anchor = Anchor(transform: transform)
+
+        anchor.type = type
         sceneView.session.add(anchor: anchor)
     }
 
@@ -97,7 +102,7 @@ class GameScene: SKScene {
 
         var hitBug: SKNode?
         for node in hitNodes {
-            if node.name == GamesImages.bug.rawValue {
+            if node.name == NodeType.bug.rawValue {
                 hitBug = node
                 break
             }
