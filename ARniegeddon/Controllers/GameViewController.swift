@@ -7,15 +7,20 @@
 //
 
 import ARKit
+import AVKit
 
 class GameViewController: UIViewController {
 
     // MARK: - OUTLETS
     @IBOutlet var sceneView: ARSKView!
+    let avPlayer = AVPlayer(name: "theme", extension: "mp3")
 
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        avPlayer?.volume = 0.05
+        avPlayer?.playLoop()
 
         let scene = GameScene(size: sceneView.bounds.size)
         scene.scaleMode = .resizeFill
@@ -23,8 +28,6 @@ class GameViewController: UIViewController {
 
         sceneView.delegate = self
         sceneView.presentScene(scene)
-        sceneView.showsFPS = true
-        sceneView.showsNodeCount = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +40,7 @@ class GameViewController: UIViewController {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
     }
+
 }
 
 extension GameViewController: ARSKViewDelegate {

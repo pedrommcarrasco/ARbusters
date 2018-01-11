@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,17 +15,59 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="ARniegeddon" customModuleProvider="target" sceneMemberID="viewController">
-                    <arskView key="view" contentMode="scaleToFill" id="2Gd-Qf-zHo">
+                    <view key="view" contentMode="scaleToFill" id="CGF-Af-Ju2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.2470588235" green="0.28627450980000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </arskView>
+                        <subviews>
+                            <arskView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2aY-Cn-FXD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arskView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCh-0T-2m0">
+                                <rect key="frame" x="16" y="587" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Fq4-Mx-aHn"/>
+                                    <constraint firstAttribute="width" secondItem="wCh-0T-2m0" secondAttribute="height" multiplier="1:1" id="I0E-ZR-LpY"/>
+                                </constraints>
+                                <state key="normal" image="ic-close"/>
+                                <connections>
+                                    <action selector="closeBtnAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Mcc-TW-5Bf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjU-f1-EJZ">
+                                <rect key="frame" x="295" y="587" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xjU-f1-EJZ" secondAttribute="height" multiplier="1:1" id="Xca-Fq-rNd"/>
+                                </constraints>
+                                <state key="normal" image="ic-music-turnOff"/>
+                                <connections>
+                                    <action selector="musicBtnAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Lbd-x4-Hmp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2aY-Cn-FXD" firstAttribute="leading" secondItem="CGF-Af-Ju2" secondAttribute="leading" id="78g-CF-nrN"/>
+                            <constraint firstItem="0nz-zK-ADp" firstAttribute="bottom" secondItem="wCh-0T-2m0" secondAttribute="bottom" constant="16" id="IHs-gA-91f"/>
+                            <constraint firstAttribute="bottom" secondItem="2aY-Cn-FXD" secondAttribute="bottom" id="NLV-MG-2ww"/>
+                            <constraint firstItem="xjU-f1-EJZ" firstAttribute="height" secondItem="wCh-0T-2m0" secondAttribute="height" id="O3Q-qb-M8L"/>
+                            <constraint firstItem="wCh-0T-2m0" firstAttribute="leading" secondItem="0nz-zK-ADp" secondAttribute="leading" constant="16" id="TBR-MI-heA"/>
+                            <constraint firstItem="2aY-Cn-FXD" firstAttribute="top" secondItem="CGF-Af-Ju2" secondAttribute="top" id="Vyr-bJ-ply"/>
+                            <constraint firstItem="0nz-zK-ADp" firstAttribute="trailing" secondItem="xjU-f1-EJZ" secondAttribute="trailing" constant="16" id="fCl-kf-dLB"/>
+                            <constraint firstAttribute="trailing" secondItem="2aY-Cn-FXD" secondAttribute="trailing" id="jDM-Uj-UUr"/>
+                            <constraint firstItem="0nz-zK-ADp" firstAttribute="bottom" secondItem="xjU-f1-EJZ" secondAttribute="bottom" constant="16" id="uqu-x7-EG9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0nz-zK-ADp"/>
+                    </view>
                     <connections>
-                        <outlet property="sceneView" destination="2Gd-Qf-zHo" id="ChE-DR-yBV"/>
+                        <outlet property="sceneView" destination="2aY-Cn-FXD" id="2F2-am-hrH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic-close" width="64" height="64"/>
+        <image name="ic-music-turnOff" width="64" height="64"/>
+    </resources>
 </document>

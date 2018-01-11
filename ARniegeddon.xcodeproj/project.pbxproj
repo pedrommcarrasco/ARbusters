@@ -23,6 +23,9 @@
 		DF2E12542006D51900F099FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E12532006D51900F099FE /* Assets.xcassets */; };
 		DFFE34E42007FAC900CAB509 /* LevelOne.sks in Resources */ = {isa = PBXBuildFile; fileRef = DFFE34E32007FAC900CAB509 /* LevelOne.sks */; };
 		DFFE34EA200802E400CAB509 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34E9200802E400CAB509 /* Anchor.swift */; };
+		DFFE34ED20080FEA00CAB509 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34EC20080FEA00CAB509 /* AVPlayer.swift */; };
+		DFFE34F02008107100CAB509 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFFE34EF2008107100CAB509 /* theme.mp3 */; };
+		DFFE34F2200816CF00CAB509 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34F1200816CF00CAB509 /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		DF2E12532006D51900F099FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFFE34E32007FAC900CAB509 /* LevelOne.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelOne.sks; sourceTree = "<group>"; };
 		DFFE34E9200802E400CAB509 /* Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
+		DFFE34EC20080FEA00CAB509 /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
+		DFFE34EF2008107100CAB509 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
+		DFFE34F1200816CF00CAB509 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 		DF0BC2A92006BC9F00848759 /* ARniegeddon */ = {
 			isa = PBXGroup;
 			children = (
+				DFFE34EB20080FD900CAB509 /* Extensions */,
 				DFFE34E8200802BB00CAB509 /* Anchors */,
 				DF0BC2C12006BECC00848759 /* Controllers */,
 				DF0BC2D42006C24400848759 /* Scenes */,
@@ -99,8 +106,9 @@
 		DF0BC2BF2006BEB900848759 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DFFE34EE2008106000CAB509 /* Background Music */,
 				DF2E12532006D51900F099FE /* Assets.xcassets */,
-				DF0BC2C52006C09000848759 /* Sounds */,
+				DF0BC2C52006C09000848759 /* Sound Effects */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -131,7 +139,7 @@
 			path = Enumerations;
 			sourceTree = "<group>";
 		};
-		DF0BC2C52006C09000848759 /* Sounds */ = {
+		DF0BC2C52006C09000848759 /* Sound Effects */ = {
 			isa = PBXGroup;
 			children = (
 				DF0BC2C62006C09000848759 /* win.wav */,
@@ -141,7 +149,7 @@
 				DF0BC2CB2006C09000848759 /* sprayBug.mp3 */,
 				DF0BC2CC2006C09000848759 /* catchBugspray.wav */,
 			);
-			path = Sounds;
+			path = "Sound Effects";
 			sourceTree = "<group>";
 		};
 		DF0BC2D42006C24400848759 /* Scenes */ = {
@@ -159,6 +167,23 @@
 				DFFE34E9200802E400CAB509 /* Anchor.swift */,
 			);
 			path = Anchors;
+			sourceTree = "<group>";
+		};
+		DFFE34EB20080FD900CAB509 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DFFE34EC20080FEA00CAB509 /* AVPlayer.swift */,
+				DFFE34F1200816CF00CAB509 /* UIButton.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DFFE34EE2008106000CAB509 /* Background Music */ = {
+			isa = PBXGroup;
+			children = (
+				DFFE34EF2008107100CAB509 /* theme.mp3 */,
+			);
+			path = "Background Music";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFFE34F02008107100CAB509 /* theme.mp3 in Resources */,
 				DF0BC2B72006BC9F00848759 /* LaunchScreen.storyboard in Resources */,
 				DF0BC2D22006C09000848759 /* sprayBug.mp3 in Resources */,
 				DF0BC2CE2006C09000848759 /* hitBug.wav in Resources */,
@@ -243,9 +269,11 @@
 				DF0BC2AF2006BC9F00848759 /* GameViewController.swift in Sources */,
 				DF0BC2AB2006BC9F00848759 /* AppDelegate.swift in Sources */,
 				DF0BC2D62006C26600848759 /* GameScene.swift in Sources */,
+				DFFE34F2200816CF00CAB509 /* UIButton.swift in Sources */,
 				DF2E12522006CD5300F099FE /* NodeType.swift in Sources */,
 				DFFE34EA200802E400CAB509 /* Anchor.swift in Sources */,
 				DF0BC2C42006C03C00848759 /* SoundType.swift in Sources */,
+				DFFE34ED20080FEA00CAB509 /* AVPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
