@@ -13,11 +13,11 @@ class GameScene: SKScene {
     // MARK: - PROPERTIES
     var sceneView: ARSKView { return view as! ARSKView}
     var sight: SKSpriteNode! = GamesImages.sight.asSprite()
+    let gameSize = CGSize(width: 2, height: 2)
     var isAugmentedRealityReady = false
 
     // MARK: - LIFECYCLE
     override func update(_ currentTime: TimeInterval) {
-
         if !isAugmentedRealityReady {
             setupWorld()
         }
@@ -27,6 +27,7 @@ class GameScene: SKScene {
 
     // MARK: - LIFECYCLE
     override func didMove(to view: SKView) {
+        srand48(Int(Date.timeIntervalSinceReferenceDate))
         addChild(self.sight)
     }
 
@@ -35,8 +36,9 @@ class GameScene: SKScene {
         guard let currentFrame = sceneView.session.currentFrame
             else { return }
 
+        createEnemies(in: currentFrame)
+
         isAugmentedRealityReady = true
-        createAnchor(in: currentFrame)
     }
 
     private func setupLight() {
@@ -55,17 +57,31 @@ class GameScene: SKScene {
         }
     }
 
-    private func createAnchor(in frame: ARFrame) {
-        var translation = matrix_identity_float4x4
-        translation.columns.3.z = -0.5
-        let transform = frame.camera.transform*translation
+    private func createEnemies(in frame: ARFrame) {
+        guard let scene = SKScene(fileNamed: "LevelOne") else { return }
 
+        for node in scene.children {
+            createAnchor(in: scene, with: frame, at: node)
+        }
+    }
+
+    private func createAnchor(in scene: SKScene, with frame: ARFrame, at node: SKNode) {
+        var translation = matrix_identity_float4x4
+
+        let x = node.position.x / scene.size.width
+        let y = node.position.y / scene.size.height
+
+        translation.columns.3.x = Float(x * gameSize.width)
+        translation.columns.3.y = Float(drand48() - 0.5)
+        translation.columns.3.z = Float(y * gameSize.height)
+
+        let transform = frame.camera.transform * translation
         let anchor = ARAnchor(transform: transform)
+
         sceneView.session.add(anchor: anchor)
     }
 
     // MARK: - USER INTERACTION
-
     override func touchesBegan(_ touches: Set<UITouch>,
                                with event: UIEvent?) {
 

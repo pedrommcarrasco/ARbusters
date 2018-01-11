@@ -21,6 +21,7 @@
 		DF0BC2D62006C26600848759 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0BC2D52006C26600848759 /* GameScene.swift */; };
 		DF2E12522006CD5300F099FE /* GameImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E12512006CD5300F099FE /* GameImages.swift */; };
 		DF2E12542006D51900F099FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E12532006D51900F099FE /* Assets.xcassets */; };
+		DFFE34E42007FAC900CAB509 /* LevelOne.sks in Resources */ = {isa = PBXBuildFile; fileRef = DFFE34E32007FAC900CAB509 /* LevelOne.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		DF0BC2D52006C26600848759 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		DF2E12512006CD5300F099FE /* GameImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameImages.swift; sourceTree = "<group>"; };
 		DF2E12532006D51900F099FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DFFE34E32007FAC900CAB509 /* LevelOne.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelOne.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				DF0BC2D52006C26600848759 /* GameScene.swift */,
+				DFFE34E32007FAC900CAB509 /* LevelOne.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				DF0BC2CE2006C09000848759 /* hitBug.wav in Resources */,
 				DF0BC2CD2006C09000848759 /* win.wav in Resources */,
 				DF0BC2CF2006C09000848759 /* lose.wav in Resources */,
+				DFFE34E42007FAC900CAB509 /* LevelOne.sks in Resources */,
 				DF0BC2D32006C09000848759 /* catchBugspray.wav in Resources */,
 				DF0BC2B22006BC9F00848759 /* Main.storyboard in Resources */,
 				DF2E12542006D51900F099FE /* Assets.xcassets in Resources */,
