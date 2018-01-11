@@ -27,6 +27,7 @@
 		DFFE34F02008107100CAB509 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFFE34EF2008107100CAB509 /* theme.mp3 */; };
 		DFFE34F2200816CF00CAB509 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34F1200816CF00CAB509 /* UIButton.swift */; };
 		DFFE34F5200818AA00CAB509 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34F4200818AA00CAB509 /* MusicManager.swift */; };
+		DFFE34F7200819B500CAB509 /* MusicState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34F6200819B500CAB509 /* MusicState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		DFFE34EF2008107100CAB509 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
 		DFFE34F1200816CF00CAB509 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		DFFE34F4200818AA00CAB509 /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
+		DFFE34F6200819B500CAB509 /* MusicState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				DF0BC2C32006C03C00848759 /* SoundType.swift */,
 				DF2E12512006CD5300F099FE /* NodeType.swift */,
+				DFFE34F6200819B500CAB509 /* MusicState.swift */,
 			);
 			path = Enumerations;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				DF0BC2AF2006BC9F00848759 /* GameViewController.swift in Sources */,
 				DF0BC2AB2006BC9F00848759 /* AppDelegate.swift in Sources */,
 				DF0BC2D62006C26600848759 /* GameScene.swift in Sources */,
+				DFFE34F7200819B500CAB509 /* MusicState.swift in Sources */,
 				DFFE34F5200818AA00CAB509 /* MusicManager.swift in Sources */,
 				DFFE34F2200816CF00CAB509 /* UIButton.swift in Sources */,
 				DF2E12522006CD5300F099FE /* NodeType.swift in Sources */,

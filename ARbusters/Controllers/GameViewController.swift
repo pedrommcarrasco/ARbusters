@@ -7,20 +7,15 @@
 //
 
 import ARKit
-import AVKit
 
 class GameViewController: UIViewController {
 
     // MARK: - OUTLETS
     @IBOutlet var sceneView: ARSKView!
-    let avPlayer = AVPlayer(name: "theme", extension: "mp3")
 
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        avPlayer?.volume = 0.05
-        avPlayer?.playLoop()
 
         let scene = GameScene(size: sceneView.bounds.size)
         scene.scaleMode = .resizeFill
@@ -28,6 +23,8 @@ class GameViewController: UIViewController {
 
         sceneView.delegate = self
         sceneView.presentScene(scene)
+
+        MusicManager.sharedInstance.playBackgroundMusic()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,15 +43,7 @@ class GameViewController: UIViewController {
     }
 
     @IBAction func musicBtnAction(_ sender: UIButton) {
-        guard let avPlayer = avPlayer else { return }
-        sender.touchAnimation()
-        if avPlayer.volume > 0 {
-            avPlayer.volume = 0
-            sender.setImage(#imageLiteral(resourceName: "ic-music-turnOn"), for: .normal)
-        } else {
-            avPlayer.volume = 0.05
-            sender.setImage(#imageLiteral(resourceName: "ic-music-turnOff"), for: .normal)
-        }
+        MusicManager.sharedInstance.changeMusicState(clicked: sender)
     }
 }
 
