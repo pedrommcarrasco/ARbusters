@@ -9,10 +9,10 @@
 import ARKit
 
 enum NodeType: String {
-    case bug = "bug"
+    case ghost = "ghost"
     case sight = "sight"
-    case firebug = "firebug"
-    case bugspray = "bugspray"
+    case boss = "boss"
+    case antiBossBuff = "antiBossBuff"
 }
 
 extension NodeType {

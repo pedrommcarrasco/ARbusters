@@ -66,7 +66,7 @@ extension GameViewController: ARSKViewDelegate {
 
     func session(_ session: ARSession, didFailWithError error: Error) {
         let alert = UIAlertController(title: "Error",
-                                      message: "It seems we're having trouble launching ARniegeddon.",
+                                      message: "It seems we're having trouble with some ghosts.",
                                       preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)

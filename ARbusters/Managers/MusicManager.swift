@@ -26,11 +26,11 @@ class MusicManager {
         case .playing:
             musicState = .muted
             avPlayer.volume = 0
-            button.setImage(#imageLiteral(resourceName: "ic-music-turnOff"), for: .normal)
+            button.setImage(#imageLiteral(resourceName: "ic-music-turnOn"), for: .normal)
         case .muted:
             musicState = .playing
             avPlayer.volume = 0.05
-            button.setImage(#imageLiteral(resourceName: "ic-music-turnOn"), for: .normal)
+            button.setImage(#imageLiteral(resourceName: "ic-music-turnOff"), for: .normal)
         }
     }
 }

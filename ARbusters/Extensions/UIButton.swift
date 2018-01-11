@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIButton {
+extension UIButton: Roundable {
     func touchAnimation() {
         self.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
 

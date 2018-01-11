@@ -17,7 +17,7 @@ class GameScene: SKScene {
 
     // MARK: - PROPERTIES ( GAME LOGIC )
     var sight: SKSpriteNode! = NodeType.sight.asSprite()
-    var hasBugspray = false
+    var hasBuff = false
 
     // MARK: - LIFECYCLE
     override func update(_ currentTime: TimeInterval) {
@@ -55,9 +55,9 @@ class GameScene: SKScene {
         let blendFactor = 1 - ambientIntensity/neutralIntensity
 
         for node in children {
-            guard let bug = node as? SKSpriteNode else { return }
-            bug.color = .black
-            bug.colorBlendFactor = blendFactor
+            guard let ghost = node as? SKSpriteNode else { return }
+            ghost.color = .black
+            ghost.colorBlendFactor = blendFactor
         }
     }
 
@@ -67,7 +67,7 @@ class GameScene: SKScene {
 
         for node in scene.children {
             if let type = createAnchor(in: scene, with: frame, at: node),
-                type == .firebug {
+                type == .boss {
 
                 createAntiBossWeapon(in: frame)
             }
@@ -107,7 +107,7 @@ class GameScene: SKScene {
         let transform = frame.camera.transform * translation
 
         let anchor = Anchor(transform: transform)
-        anchor.type = .bugspray
+        anchor.type = .antiBossBuff
 
         sceneView.session.add(anchor: anchor)
     }
@@ -117,31 +117,31 @@ class GameScene: SKScene {
                                with event: UIEvent?) {
 
         run(Sounds.fire)
-        guard let hitBug = bugShot() else { return }
-        killBug(from: hitBug)
+        guard let hitEnemie = shot() else { return }
+        killEnemie(from: hitEnemie)
 
     }
 
-    private func bugShot() -> SKNode? {
+    private func shot() -> SKNode? {
         let location = sight.position
         let hitNodes = nodes(at: location)
 
-        var hitBug: SKNode?
+        var hitEnemie: SKNode?
         for node in hitNodes {
-            if node.name == NodeType.bug.rawValue ||
-                (node.name == NodeType.firebug.rawValue && hasBugspray) {
-                hitBug = node
+            if node.name == NodeType.ghost.rawValue ||
+                (node.name == NodeType.boss.rawValue && hasBuff) {
+                hitEnemie = node
                 break
             }
         }
 
-        hasBugspray = false
-        return hitBug
+        hasBuff = false
+        return hitEnemie
     }
 
-    private func killBug(from node: SKNode?) {
-        guard let hitbug = node,
-            let anchor = sceneView.anchor(for: hitbug) else { return }
+    private func killEnemie(from node: SKNode?) {
+        guard let hitEnemie = node,
+            let anchor = sceneView.anchor(for: hitEnemie) else { return }
 
         let action = SKAction.run {
             self.sceneView.session.remove(anchor: anchor)
@@ -149,7 +149,7 @@ class GameScene: SKScene {
 
         let group = SKAction.group([Sounds.hit, action])
         let sequence = [SKAction.wait(forDuration: 0.25), group]
-        hitbug.run(SKAction.sequence(sequence))
+        hitEnemie.run(SKAction.sequence(sequence))
     }
 
     private func detectIfPickedAntiBossWeapon() {
@@ -157,22 +157,22 @@ class GameScene: SKScene {
         for anchor in frame.anchors {
 
             guard let node = sceneView.node(for: anchor),
-                node.name == NodeType.bugspray.rawValue
+                node.name == NodeType.antiBossBuff.rawValue
                 else { continue }
 
             let distance = simd_distance(anchor.transform.columns.3,
                                          frame.camera.transform.columns.3)
 
             if distance < 0.1 {
-                pickupAntiBossWeapon(bugspray: anchor)
+                pickupAntiBossWeapon(anchor)
                 break
             }
         }
     }
 
-    private func pickupAntiBossWeapon(bugspray anchor: ARAnchor) {
+    private func pickupAntiBossWeapon(_ anchor: ARAnchor) {
         run(Sounds.bugspray)
         sceneView.session.remove(anchor: anchor)
-        hasBugspray = true
+        hasBuff = true
     }
 }
