@@ -10,6 +10,7 @@ import ARKit
 
 enum GamesImages: String {
     case bug = "bug"
+    case sight = "sight"
 }
 
 extension GamesImages {
