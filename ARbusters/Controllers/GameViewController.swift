@@ -41,6 +41,21 @@ class GameViewController: UIViewController {
         sceneView.session.pause()
     }
 
+    // MARK: - ACTIONS
+    @IBAction func closeBtnAction(_ sender: UIButton) {
+    }
+
+    @IBAction func musicBtnAction(_ sender: UIButton) {
+        guard let avPlayer = avPlayer else { return }
+        sender.touchAnimation()
+        if avPlayer.volume > 0 {
+            avPlayer.volume = 0
+            sender.setImage(#imageLiteral(resourceName: "ic-music-turnOn"), for: .normal)
+        } else {
+            avPlayer.volume = 0.05
+            sender.setImage(#imageLiteral(resourceName: "ic-music-turnOff"), for: .normal)
+        }
+    }
 }
 
 extension GameViewController: ARSKViewDelegate {

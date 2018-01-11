@@ -26,10 +26,11 @@
 		DFFE34ED20080FEA00CAB509 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34EC20080FEA00CAB509 /* AVPlayer.swift */; };
 		DFFE34F02008107100CAB509 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DFFE34EF2008107100CAB509 /* theme.mp3 */; };
 		DFFE34F2200816CF00CAB509 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34F1200816CF00CAB509 /* UIButton.swift */; };
+		DFFE34F5200818AA00CAB509 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34F4200818AA00CAB509 /* MusicManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DF0BC2A72006BC9F00848759 /* ARniegeddon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARniegeddon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF0BC2A72006BC9F00848759 /* ARbusters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARbusters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0BC2AA2006BC9F00848759 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF0BC2AE2006BC9F00848759 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		DF0BC2B12006BC9F00848759 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,6 +51,7 @@
 		DFFE34EC20080FEA00CAB509 /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
 		DFFE34EF2008107100CAB509 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = theme.mp3; sourceTree = "<group>"; };
 		DFFE34F1200816CF00CAB509 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		DFFE34F4200818AA00CAB509 /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,7 @@
 		DF0BC29E2006BC9F00848759 = {
 			isa = PBXGroup;
 			children = (
-				DF0BC2A92006BC9F00848759 /* ARniegeddon */,
+				DF0BC2A92006BC9F00848759 /* ARbusters */,
 				DF0BC2A82006BC9F00848759 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,15 +76,16 @@
 		DF0BC2A82006BC9F00848759 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DF0BC2A72006BC9F00848759 /* ARniegeddon.app */,
+				DF0BC2A72006BC9F00848759 /* ARbusters.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DF0BC2A92006BC9F00848759 /* ARniegeddon */ = {
+		DF0BC2A92006BC9F00848759 /* ARbusters */ = {
 			isa = PBXGroup;
 			children = (
 				DFFE34EB20080FD900CAB509 /* Extensions */,
+				DFFE34F32008189300CAB509 /* Managers */,
 				DFFE34E8200802BB00CAB509 /* Anchors */,
 				DF0BC2C12006BECC00848759 /* Controllers */,
 				DF0BC2D42006C24400848759 /* Scenes */,
@@ -91,7 +94,7 @@
 				DF0BC2BF2006BEB900848759 /* Resources */,
 				DF0BC2BE2006BEA300848759 /* Storyboards */,
 			);
-			path = ARniegeddon;
+			path = ARbusters;
 			sourceTree = "<group>";
 		};
 		DF0BC2BE2006BEA300848759 /* Storyboards */ = {
@@ -186,12 +189,20 @@
 			path = "Background Music";
 			sourceTree = "<group>";
 		};
+		DFFE34F32008189300CAB509 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DFFE34F4200818AA00CAB509 /* MusicManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DF0BC2A62006BC9F00848759 /* ARniegeddon */ = {
+		DF0BC2A62006BC9F00848759 /* ARbusters */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DF0BC2BB2006BC9F00848759 /* Build configuration list for PBXNativeTarget "ARniegeddon" */;
+			buildConfigurationList = DF0BC2BB2006BC9F00848759 /* Build configuration list for PBXNativeTarget "ARbusters" */;
 			buildPhases = (
 				DF0BC2A32006BC9F00848759 /* Sources */,
 				DF0BC2A42006BC9F00848759 /* Frameworks */,
@@ -201,9 +212,9 @@
 			);
 			dependencies = (
 			);
-			name = ARniegeddon;
+			name = ARbusters;
 			productName = ARniegeddon;
-			productReference = DF0BC2A72006BC9F00848759 /* ARniegeddon.app */;
+			productReference = DF0BC2A72006BC9F00848759 /* ARbusters.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -222,7 +233,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DF0BC2A22006BC9F00848759 /* Build configuration list for PBXProject "ARniegeddon" */;
+			buildConfigurationList = DF0BC2A22006BC9F00848759 /* Build configuration list for PBXProject "ARbusters" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -235,7 +246,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DF0BC2A62006BC9F00848759 /* ARniegeddon */,
+				DF0BC2A62006BC9F00848759 /* ARbusters */,
 			);
 		};
 /* End PBXProject section */
@@ -269,6 +280,7 @@
 				DF0BC2AF2006BC9F00848759 /* GameViewController.swift in Sources */,
 				DF0BC2AB2006BC9F00848759 /* AppDelegate.swift in Sources */,
 				DF0BC2D62006C26600848759 /* GameScene.swift in Sources */,
+				DFFE34F5200818AA00CAB509 /* MusicManager.swift in Sources */,
 				DFFE34F2200816CF00CAB509 /* UIButton.swift in Sources */,
 				DF2E12522006CD5300F099FE /* NodeType.swift in Sources */,
 				DFFE34EA200802E400CAB509 /* Anchor.swift in Sources */,
@@ -412,7 +424,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7GE4Q65N57;
-				INFOPLIST_FILE = "$(SRCROOT)/ARniegeddon/Configurations/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ARbusters/Configurations/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Pedro-Carrasco.ARniegeddon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,7 +439,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7GE4Q65N57;
-				INFOPLIST_FILE = "$(SRCROOT)/ARniegeddon/Configurations/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/ARbusters/Configurations/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Pedro-Carrasco.ARniegeddon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -439,7 +451,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DF0BC2A22006BC9F00848759 /* Build configuration list for PBXProject "ARniegeddon" */ = {
+		DF0BC2A22006BC9F00848759 /* Build configuration list for PBXProject "ARbusters" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF0BC2B92006BC9F00848759 /* Debug */,
@@ -448,7 +460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF0BC2BB2006BC9F00848759 /* Build configuration list for PBXNativeTarget "ARniegeddon" */ = {
+		DF0BC2BB2006BC9F00848759 /* Build configuration list for PBXNativeTarget "ARbusters" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DF0BC2BC2006BC9F00848759 /* Debug */,
