@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Marchmallow2.png",
+      "filename" : "marshmallowSmall.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Marchmallow2-1.png",
+      "filename" : "marshmallowSmall-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Marchmallow2-2.png",
+      "filename" : "marshmallowSmall-2.png",
       "scale" : "3x"
     }
   ],

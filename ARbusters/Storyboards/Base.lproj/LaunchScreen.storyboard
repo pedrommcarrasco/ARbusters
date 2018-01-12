@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,28 +18,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bug" translatesAutoresizingMaskIntoConstraints="NO" id="N4T-tt-6qO">
-                                <rect key="frame" x="123" y="279" width="128" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="design-logo" translatesAutoresizingMaskIntoConstraints="NO" id="y4I-8O-7be">
+                                <rect key="frame" x="0.0" y="20" width="375" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="N4T-tt-6qO" secondAttribute="height" multiplier="1:1" id="K2N-XL-jhw"/>
-                                    <constraint firstAttribute="height" constant="128" id="k43-Gj-aXz"/>
+                                    <constraint firstAttribute="height" constant="250" id="IOk-EY-6AP"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by Pedro Carrasco, 2018 " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdf-Yo-9hD">
+                                <rect key="frame" x="8" y="626" width="359" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.github.com/pedrommcarrasco" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NM8-6h-cT1">
+                                <rect key="frame" x="8" y="644.5" width="359" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.2470588235" green="0.28627450980000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="N4T-tt-6qO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CUW-Y0-ryt"/>
-                            <constraint firstItem="N4T-tt-6qO" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="zch-i8-ri0"/>
+                            <constraint firstItem="NM8-6h-cT1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="0rc-Ny-aB7"/>
+                            <constraint firstItem="sdf-Yo-9hD" firstAttribute="leading" secondItem="NM8-6h-cT1" secondAttribute="leading" id="2YC-hx-TK4"/>
+                            <constraint firstAttribute="trailing" secondItem="y4I-8O-7be" secondAttribute="trailing" id="Gwp-W1-ntO"/>
+                            <constraint firstItem="y4I-8O-7be" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LaT-Eb-lrr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NM8-6h-cT1" secondAttribute="bottom" constant="8" id="Zoc-nX-HuP"/>
+                            <constraint firstItem="y4I-8O-7be" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dFk-iL-KDc"/>
+                            <constraint firstItem="NM8-6h-cT1" firstAttribute="top" secondItem="sdf-Yo-9hD" secondAttribute="bottom" constant="4" id="efo-5z-DgR"/>
+                            <constraint firstItem="NM8-6h-cT1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-8" id="jeR-Ib-YSo"/>
+                            <constraint firstItem="sdf-Yo-9hD" firstAttribute="trailing" secondItem="NM8-6h-cT1" secondAttribute="trailing" id="yzj-Xl-egs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>
-        <image name="bug" width="32" height="32"/>
+        <image name="design-logo" width="250" height="250"/>
     </resources>
 </document>

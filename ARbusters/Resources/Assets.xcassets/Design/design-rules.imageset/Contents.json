@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "buffSmall.png",
+      "filename" : "rules.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "buffSmall-1.png",
+      "filename" : "rules-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "buffSmall-2.png",
+      "filename" : "rules-2.png",
       "scale" : "3x"
     }
   ],

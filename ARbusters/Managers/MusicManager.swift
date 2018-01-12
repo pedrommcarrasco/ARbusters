@@ -16,6 +16,10 @@ class MusicManager {
     private var musicState: MusicState = .playing
 
     func playBackgroundMusic() {
+        avPlayer.volume = 0
+        UIView.animate(withDuration: 4) { [weak self] in
+            self?.avPlayer.volume = 0.05
+        }
         avPlayer.playLoop()
     }
 

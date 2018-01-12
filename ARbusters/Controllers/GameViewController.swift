@@ -23,8 +23,6 @@ class GameViewController: UIViewController {
 
         sceneView.delegate = self
         sceneView.presentScene(scene)
-
-        MusicManager.sharedInstance.playBackgroundMusic()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +38,8 @@ class GameViewController: UIViewController {
 
     // MARK: - ACTIONS
     @IBAction func closeBtnAction(_ sender: UIButton) {
+        sender.touchAnimation()
+        navigationController?.popToRootViewController(animated: true)
     }
 
     @IBAction func musicBtnAction(_ sender: UIButton) {

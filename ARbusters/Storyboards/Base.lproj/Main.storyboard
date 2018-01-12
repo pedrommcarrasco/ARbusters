@@ -36,7 +36,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBv-uz-tf1">
                                 <rect key="frame" x="36" y="587" width="303" height="64"/>
-                                <color key="backgroundColor" red="0.87948554749999996" green="0.31137073040000002" blue="0.37093561889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.8784313725490196" green="0.30980392156862746" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="JTV-go-8lg"/>
                                 </constraints>
@@ -47,11 +47,27 @@
                                     <segue destination="BV1-FR-VrT" kind="show" id="yPc-kv-yXd"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="design-logo" translatesAutoresizingMaskIntoConstraints="NO" id="nqe-VT-kta">
+                                <rect key="frame" x="0.0" y="20" width="375" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="WrD-vB-lb2"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="design-rules" translatesAutoresizingMaskIntoConstraints="NO" id="hIL-iw-GS9">
+                                <rect key="frame" x="36" y="306" width="303" height="181"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="btQ-6D-o1U" firstAttribute="bottom" secondItem="FBv-uz-tf1" secondAttribute="bottom" constant="16" id="90L-8h-w9b"/>
+                            <constraint firstItem="hIL-iw-GS9" firstAttribute="top" secondItem="nqe-VT-kta" secondAttribute="bottom" constant="36" id="RA0-F4-r5w"/>
+                            <constraint firstItem="nqe-VT-kta" firstAttribute="top" secondItem="btQ-6D-o1U" secondAttribute="top" id="TMa-E7-S2P"/>
+                            <constraint firstItem="hIL-iw-GS9" firstAttribute="leading" secondItem="FBv-uz-tf1" secondAttribute="leading" id="Tkf-b9-Ter"/>
                             <constraint firstItem="FBv-uz-tf1" firstAttribute="leading" secondItem="btQ-6D-o1U" secondAttribute="leading" constant="36" id="Zjf-EK-6Vm"/>
+                            <constraint firstItem="FBv-uz-tf1" firstAttribute="top" secondItem="hIL-iw-GS9" secondAttribute="bottom" constant="100" id="cA8-Dt-YPq"/>
+                            <constraint firstItem="hIL-iw-GS9" firstAttribute="trailing" secondItem="FBv-uz-tf1" secondAttribute="trailing" id="jPt-ME-bYb"/>
+                            <constraint firstItem="btQ-6D-o1U" firstAttribute="trailing" secondItem="nqe-VT-kta" secondAttribute="trailing" id="pLS-JZ-dX0"/>
+                            <constraint firstItem="nqe-VT-kta" firstAttribute="leading" secondItem="btQ-6D-o1U" secondAttribute="leading" id="slA-zi-DvS"/>
                             <constraint firstItem="btQ-6D-o1U" firstAttribute="trailing" secondItem="FBv-uz-tf1" secondAttribute="trailing" constant="36" id="wun-7B-HRG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="btQ-6D-o1U"/>
@@ -97,17 +113,26 @@
                                     <action selector="musicBtnAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Lbd-x4-Hmp"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="design-logo" translatesAutoresizingMaskIntoConstraints="NO" id="2mc-H7-Zow">
+                                <rect key="frame" x="0.0" y="20" width="375" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="8Qt-83-FAd"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2aY-Cn-FXD" firstAttribute="leading" secondItem="CGF-Af-Ju2" secondAttribute="leading" id="78g-CF-nrN"/>
+                            <constraint firstItem="2mc-H7-Zow" firstAttribute="top" secondItem="0nz-zK-ADp" secondAttribute="top" id="I57-rG-pBM"/>
                             <constraint firstItem="0nz-zK-ADp" firstAttribute="bottom" secondItem="wCh-0T-2m0" secondAttribute="bottom" constant="16" id="IHs-gA-91f"/>
                             <constraint firstAttribute="bottom" secondItem="2aY-Cn-FXD" secondAttribute="bottom" id="NLV-MG-2ww"/>
                             <constraint firstItem="xjU-f1-EJZ" firstAttribute="height" secondItem="wCh-0T-2m0" secondAttribute="height" id="O3Q-qb-M8L"/>
                             <constraint firstItem="wCh-0T-2m0" firstAttribute="leading" secondItem="0nz-zK-ADp" secondAttribute="leading" constant="16" id="TBR-MI-heA"/>
                             <constraint firstItem="2aY-Cn-FXD" firstAttribute="top" secondItem="CGF-Af-Ju2" secondAttribute="top" id="Vyr-bJ-ply"/>
+                            <constraint firstItem="2mc-H7-Zow" firstAttribute="leading" secondItem="0nz-zK-ADp" secondAttribute="leading" id="dsm-89-b23"/>
                             <constraint firstItem="0nz-zK-ADp" firstAttribute="trailing" secondItem="xjU-f1-EJZ" secondAttribute="trailing" constant="16" id="fCl-kf-dLB"/>
                             <constraint firstAttribute="trailing" secondItem="2aY-Cn-FXD" secondAttribute="trailing" id="jDM-Uj-UUr"/>
+                            <constraint firstItem="0nz-zK-ADp" firstAttribute="trailing" secondItem="2mc-H7-Zow" secondAttribute="trailing" id="rH0-UF-OQn"/>
                             <constraint firstItem="0nz-zK-ADp" firstAttribute="bottom" secondItem="xjU-f1-EJZ" secondAttribute="bottom" constant="16" id="uqu-x7-EG9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0nz-zK-ADp"/>
@@ -118,9 +143,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="669.60000000000002" y="44.527736131934034"/>
         </scene>
     </scenes>
     <resources>
+        <image name="design-logo" width="250" height="250"/>
+        <image name="design-rules" width="250" height="250"/>
         <image name="ic-close" width="64" height="64"/>
         <image name="ic-music-turnOff" width="64" height="64"/>
     </resources>
