@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
     // MARK: - LIFECICLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        MusicManager.sharedInstance.playBackgroundMusic()
         setupButtons()
     }
 

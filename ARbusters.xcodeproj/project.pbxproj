@@ -19,6 +19,9 @@
 		DF0BC2D22006C09000848759 /* sprayBug.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DF0BC2CB2006C09000848759 /* sprayBug.mp3 */; };
 		DF0BC2D32006C09000848759 /* catchBugspray.wav in Resources */ = {isa = PBXBuildFile; fileRef = DF0BC2CC2006C09000848759 /* catchBugspray.wav */; };
 		DF0BC2D62006C26600848759 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0BC2D52006C26600848759 /* GameScene.swift */; };
+		DF10B44E2008F202007DC248 /* ScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF10B44D2008F202007DC248 /* ScoreView.xib */; };
+		DF10B4522008F7DE007DC248 /* LLPIXEL3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF10B4512008F7D9007DC248 /* LLPIXEL3.ttf */; };
+		DF10B4542008FA1E007DC248 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10B4532008FA1E007DC248 /* ScoreView.swift */; };
 		DF2E12522006CD5300F099FE /* NodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E12512006CD5300F099FE /* NodeType.swift */; };
 		DF2E12542006D51900F099FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E12532006D51900F099FE /* Assets.xcassets */; };
 		DFFE34E42007FAC900CAB509 /* LevelOne.sks in Resources */ = {isa = PBXBuildFile; fileRef = DFFE34E32007FAC900CAB509 /* LevelOne.sks */; };
@@ -47,6 +50,9 @@
 		DF0BC2CB2006C09000848759 /* sprayBug.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sprayBug.mp3; sourceTree = "<group>"; };
 		DF0BC2CC2006C09000848759 /* catchBugspray.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = catchBugspray.wav; sourceTree = "<group>"; };
 		DF0BC2D52006C26600848759 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		DF10B44D2008F202007DC248 /* ScoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreView.xib; sourceTree = "<group>"; };
+		DF10B4512008F7D9007DC248 /* LLPIXEL3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LLPIXEL3.ttf; sourceTree = "<group>"; };
+		DF10B4532008FA1E007DC248 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		DF2E12512006CD5300F099FE /* NodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeType.swift; sourceTree = "<group>"; };
 		DF2E12532006D51900F099FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFFE34E32007FAC900CAB509 /* LevelOne.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelOne.sks; sourceTree = "<group>"; };
@@ -90,6 +96,7 @@
 		DF0BC2A92006BC9F00848759 /* ARbusters */ = {
 			isa = PBXGroup;
 			children = (
+				DF10B44C2008F1EF007DC248 /* Views */,
 				DFFE34FA20081FE300CAB509 /* Protocols */,
 				DFFE34EB20080FD900CAB509 /* Extensions */,
 				DFFE34F32008189300CAB509 /* Managers */,
@@ -116,6 +123,7 @@
 		DF0BC2BF2006BEB900848759 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DF10B4502008F7CF007DC248 /* Fonts */,
 				DFFE34EE2008106000CAB509 /* Background Music */,
 				DF2E12532006D51900F099FE /* Assets.xcassets */,
 				DF0BC2C52006C09000848759 /* Sound Effects */,
@@ -171,6 +179,23 @@
 				DFFE34E32007FAC900CAB509 /* LevelOne.sks */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DF10B44C2008F1EF007DC248 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DF10B44D2008F202007DC248 /* ScoreView.xib */,
+				DF10B4532008FA1E007DC248 /* ScoreView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DF10B4502008F7CF007DC248 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DF10B4512008F7D9007DC248 /* LLPIXEL3.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		DFFE34E8200802BB00CAB509 /* Anchors */ = {
@@ -274,9 +299,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFFE34F02008107100CAB509 /* theme.mp3 in Resources */,
+				DF10B4522008F7DE007DC248 /* LLPIXEL3.ttf in Resources */,
 				DF0BC2B72006BC9F00848759 /* LaunchScreen.storyboard in Resources */,
 				DF0BC2D22006C09000848759 /* sprayBug.mp3 in Resources */,
 				DF0BC2CE2006C09000848759 /* hitBug.wav in Resources */,
+				DF10B44E2008F202007DC248 /* ScoreView.xib in Resources */,
 				DF0BC2CD2006C09000848759 /* win.wav in Resources */,
 				DF0BC2CF2006C09000848759 /* lose.wav in Resources */,
 				DFFE34E42007FAC900CAB509 /* LevelOne.sks in Resources */,
@@ -305,6 +332,7 @@
 				DFFE34F920081BFB00CAB509 /* HomeViewController.swift in Sources */,
 				DFFE34EA200802E400CAB509 /* Anchor.swift in Sources */,
 				DF0BC2C42006C03C00848759 /* SoundType.swift in Sources */,
+				DF10B4542008FA1E007DC248 /* ScoreView.swift in Sources */,
 				DFFE34ED20080FEA00CAB509 /* AVPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,21 +11,23 @@ import AVKit
 class MusicManager {
     static let sharedInstance = MusicManager()
     private init() {}
-
+    
     private var avPlayer: AVPlayer = AVPlayer(name: "theme", extension: "mp3")!
     private var musicState: MusicState = .playing
-
+    
     func playBackgroundMusic() {
-        avPlayer.volume = 0
-        UIView.animate(withDuration: 4) { [weak self] in
-            self?.avPlayer.volume = 0.05
-        }
+        avPlayer.volume = 0.05
         avPlayer.playLoop()
+    }
+    
+    func stopBackgroundMusic() {
+        avPlayer.volume = 0
+        avPlayer.endLoop()
     }
 
     func changeMusicState(clicked button: UIButton) {
         button.touchAnimation()
-
+        
         switch musicState {
         case .playing:
             musicState = .muted

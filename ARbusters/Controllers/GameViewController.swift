@@ -27,6 +27,7 @@ class GameViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        MusicManager.sharedInstance.playBackgroundMusic()
         let configuration = ARWorldTrackingConfiguration()
         sceneView.session.run(configuration)
     }
@@ -34,6 +35,7 @@ class GameViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
+        MusicManager.sharedInstance.stopBackgroundMusic()
     }
 
     // MARK: - ACTIONS
