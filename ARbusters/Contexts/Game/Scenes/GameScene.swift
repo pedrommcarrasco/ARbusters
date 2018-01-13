@@ -8,9 +8,18 @@
 
 import ARKit
 
+
+protocol GameSceneProtocol: class {
+    func createdAnchor(anchor: Anchor)
+    func userDidKill(node: Anchor)
+    func userPickedBuff()
+    func userShotWithBuff()
+}
+
 class GameScene: SKScene {
 
     // MARK: - PROPERTIES
+    weak var controllerDelegate: GameSceneProtocol?
     var sceneView: ARSKView { return view as! ARSKView}
     let gameSize = CGSize(width: 2, height: 2)
     var isAugmentedRealityReady = false
@@ -93,6 +102,7 @@ class GameScene: SKScene {
 
         anchor.type = type
         sceneView.session.add(anchor: anchor)
+        controllerDelegate?.createdAnchor(anchor: anchor)
 
         return type
     }
@@ -110,6 +120,7 @@ class GameScene: SKScene {
         anchor.type = .antiBossBuff
 
         sceneView.session.add(anchor: anchor)
+        controllerDelegate?.createdAnchor(anchor: anchor)
     }
 
     // MARK: - USER INTERACTION

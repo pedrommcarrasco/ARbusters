@@ -12,14 +12,22 @@ class GameViewController: UIViewController {
 
     // MARK: - OUTLETS
     @IBOutlet var sceneView: ARSKView!
+    @IBOutlet weak var timeLabel: UILabel!
+
+    // MARK: - PROPERTIES
+    var array = [Anchor]()
+    let timer = Timer()
+    var time = -1
 
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTimer()
 
         let scene = GameScene(size: sceneView.bounds.size)
         scene.scaleMode = .resizeFill
         scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        scene.controllerDelegate = self
 
         sceneView.delegate = self
         sceneView.presentScene(scene)
@@ -36,6 +44,18 @@ class GameViewController: UIViewController {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
         MusicManager.sharedInstance.stopBackgroundMusic()
+        timer.invalidate()
+    }
+
+    // MARK: - TIMER
+
+    private func setupTimer() {
+        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+
+    @objc private func updateTime() {
+        time+=1
+        timeLabel.text = String(time)
     }
 
     // MARK: - ACTIONS
@@ -73,4 +93,24 @@ extension GameViewController: ARSKViewDelegate {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+}
+
+extension GameViewController: GameSceneProtocol {
+    func createdAnchor(anchor: Anchor) {
+        array.append(anchor)
+    }
+
+    func userDidKill(node: Anchor) {
+
+    }
+
+    func userPickedBuff() {
+
+    }
+
+    func userShotWithBuff() {
+
+    }
+
+
 }
