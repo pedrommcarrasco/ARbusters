@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF033346200A1DD30070523F /* VictoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF033345200A1DD30070523F /* VictoryView.xib */; };
+		DF03334A200A1F370070523F /* VictoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF033349200A1F370070523F /* VictoryView.swift */; };
+		DF03334C200A1F420070523F /* DefeatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF03334B200A1F420070523F /* DefeatView.xib */; };
+		DF03334E200A217C0070523F /* DefeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03334D200A217C0070523F /* DefeatView.swift */; };
 		DF0BC2AB2006BC9F00848759 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0BC2AA2006BC9F00848759 /* AppDelegate.swift */; };
 		DF0BC2AF2006BC9F00848759 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0BC2AE2006BC9F00848759 /* GameViewController.swift */; };
 		DF0BC2B22006BC9F00848759 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF0BC2B02006BC9F00848759 /* Main.storyboard */; };
@@ -36,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF033345200A1DD30070523F /* VictoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VictoryView.xib; sourceTree = "<group>"; };
+		DF033349200A1F370070523F /* VictoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryView.swift; sourceTree = "<group>"; };
+		DF03334B200A1F420070523F /* DefeatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefeatView.xib; sourceTree = "<group>"; };
+		DF03334D200A217C0070523F /* DefeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefeatView.swift; sourceTree = "<group>"; };
 		DF0BC2A72006BC9F00848759 /* ARbusters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARbusters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF0BC2AA2006BC9F00848759 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF0BC2AE2006BC9F00848759 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +194,10 @@
 			children = (
 				DF10B44D2008F202007DC248 /* ScoreView.xib */,
 				DF10B4532008FA1E007DC248 /* ScoreView.swift */,
+				DF033345200A1DD30070523F /* VictoryView.xib */,
+				DF033349200A1F370070523F /* VictoryView.swift */,
+				DF03334B200A1F420070523F /* DefeatView.xib */,
+				DF03334D200A217C0070523F /* DefeatView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,8 +311,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFFE34F02008107100CAB509 /* theme.mp3 in Resources */,
+				DF03334C200A1F420070523F /* DefeatView.xib in Resources */,
 				DF10B4522008F7DE007DC248 /* LLPIXEL3.ttf in Resources */,
 				DF0BC2B72006BC9F00848759 /* LaunchScreen.storyboard in Resources */,
+				DF033346200A1DD30070523F /* VictoryView.xib in Resources */,
 				DF0BC2D22006C09000848759 /* sprayBug.mp3 in Resources */,
 				DF0BC2CE2006C09000848759 /* hitBug.wav in Resources */,
 				DF10B44E2008F202007DC248 /* ScoreView.xib in Resources */,
@@ -330,6 +344,8 @@
 				DFFE34FC20081FF700CAB509 /* Roundable.swift in Sources */,
 				DF2E12522006CD5300F099FE /* NodeType.swift in Sources */,
 				DFFE34F920081BFB00CAB509 /* HomeViewController.swift in Sources */,
+				DF03334E200A217C0070523F /* DefeatView.swift in Sources */,
+				DF03334A200A1F370070523F /* VictoryView.swift in Sources */,
 				DFFE34EA200802E400CAB509 /* Anchor.swift in Sources */,
 				DF0BC2C42006C03C00848759 /* SoundType.swift in Sources */,
 				DF10B4542008FA1E007DC248 /* ScoreView.swift in Sources */,
