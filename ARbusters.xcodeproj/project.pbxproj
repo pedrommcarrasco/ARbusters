@@ -85,6 +85,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF033350200A4AFF0070523F /* Contexts */ = {
+			isa = PBXGroup;
+			children = (
+				DF033352200A4B350070523F /* Home */,
+				DF033353200A4B3C0070523F /* Game */,
+				DF033354200A4B450070523F /* Result */,
+				DF0BC2C12006BECC00848759 /* Controllers */,
+			);
+			path = Contexts;
+			sourceTree = "<group>";
+		};
+		DF033352200A4B350070523F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DFFE34F820081BFB00CAB509 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DF033353200A4B3C0070523F /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				DF0BC2AE2006BC9F00848759 /* GameViewController.swift */,
+				DF0BC2D42006C24400848759 /* Scenes */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		DF033354200A4B450070523F /* Result */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		DF033356200A4BC20070523F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DFFE34E9200802E400CAB509 /* Anchor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DF033357200A4BEC0070523F /* Highest Scores */ = {
+			isa = PBXGroup;
+			children = (
+				DF10B44D2008F202007DC248 /* ScoreView.xib */,
+				DF10B4532008FA1E007DC248 /* ScoreView.swift */,
+			);
+			path = "Highest Scores";
+			sourceTree = "<group>";
+		};
+		DF033358200A4C040070523F /* Victory */ = {
+			isa = PBXGroup;
+			children = (
+				DF033345200A1DD30070523F /* VictoryView.xib */,
+				DF033349200A1F370070523F /* VictoryView.swift */,
+			);
+			path = Victory;
+			sourceTree = "<group>";
+		};
+		DF033359200A4C0F0070523F /* Defeat */ = {
+			isa = PBXGroup;
+			children = (
+				DF03334B200A1F420070523F /* DefeatView.xib */,
+				DF03334D200A217C0070523F /* DefeatView.swift */,
+			);
+			path = Defeat;
+			sourceTree = "<group>";
+		};
 		DF0BC29E2006BC9F00848759 = {
 			isa = PBXGroup;
 			children = (
@@ -104,17 +174,16 @@
 		DF0BC2A92006BC9F00848759 /* ARbusters */ = {
 			isa = PBXGroup;
 			children = (
+				DF033356200A4BC20070523F /* Model */,
+				DF033350200A4AFF0070523F /* Contexts */,
+				DF0BC2BE2006BEA300848759 /* Storyboards */,
 				DF10B44C2008F1EF007DC248 /* Views */,
+				DFFE34F32008189300CAB509 /* Managers */,
 				DFFE34FA20081FE300CAB509 /* Protocols */,
 				DFFE34EB20080FD900CAB509 /* Extensions */,
-				DFFE34F32008189300CAB509 /* Managers */,
-				DFFE34E8200802BB00CAB509 /* Anchors */,
-				DF0BC2C12006BECC00848759 /* Controllers */,
-				DF0BC2D42006C24400848759 /* Scenes */,
 				DF0BC2C22006C02900848759 /* Enumerations */,
 				DF0BC2C02006BEC300848759 /* Configurations */,
 				DF0BC2BF2006BEB900848759 /* Resources */,
-				DF0BC2BE2006BEA300848759 /* Storyboards */,
 			);
 			path = ARbusters;
 			sourceTree = "<group>";
@@ -151,8 +220,6 @@
 		DF0BC2C12006BECC00848759 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DF0BC2AE2006BC9F00848759 /* GameViewController.swift */,
-				DFFE34F820081BFB00CAB509 /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,12 +259,9 @@
 		DF10B44C2008F1EF007DC248 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DF10B44D2008F202007DC248 /* ScoreView.xib */,
-				DF10B4532008FA1E007DC248 /* ScoreView.swift */,
-				DF033345200A1DD30070523F /* VictoryView.xib */,
-				DF033349200A1F370070523F /* VictoryView.swift */,
-				DF03334B200A1F420070523F /* DefeatView.xib */,
-				DF03334D200A217C0070523F /* DefeatView.swift */,
+				DF033359200A4C0F0070523F /* Defeat */,
+				DF033358200A4C040070523F /* Victory */,
+				DF033357200A4BEC0070523F /* Highest Scores */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,14 +272,6 @@
 				DF10B4512008F7D9007DC248 /* LLPIXEL3.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		DFFE34E8200802BB00CAB509 /* Anchors */ = {
-			isa = PBXGroup;
-			children = (
-				DFFE34E9200802E400CAB509 /* Anchor.swift */,
-			);
-			path = Anchors;
 			sourceTree = "<group>";
 		};
 		DFFE34EB20080FD900CAB509 /* Extensions */ = {

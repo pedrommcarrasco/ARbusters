@@ -170,12 +170,34 @@
                                     <constraint firstAttribute="height" constant="100" id="2IP-kS-aYi"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgs-6j-YS3">
+                                <rect key="frame" x="16" y="136" width="343" height="435"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vx3-1h-DDt">
+                                <rect key="frame" x="36" y="587" width="303" height="64"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.30980392159999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="GZc-cg-RKI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LLPixel" family="LLPixel" pointSize="17"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hRy-81-AQr" firstAttribute="trailing" secondItem="7Fk-S2-Y79" secondAttribute="trailing" id="4cE-Wu-1IX"/>
+                            <constraint firstItem="cgs-6j-YS3" firstAttribute="top" secondItem="7Fk-S2-Y79" secondAttribute="bottom" constant="16" id="Elw-eM-Axr"/>
+                            <constraint firstItem="hRy-81-AQr" firstAttribute="bottom" secondItem="Vx3-1h-DDt" secondAttribute="bottom" constant="16" id="HMp-cn-QRa"/>
                             <constraint firstItem="7Fk-S2-Y79" firstAttribute="leading" secondItem="7Oi-7j-e4P" secondAttribute="leading" id="Qz9-4e-yJE"/>
                             <constraint firstItem="7Fk-S2-Y79" firstAttribute="top" secondItem="hRy-81-AQr" secondAttribute="top" id="WqV-vy-rUZ"/>
+                            <constraint firstItem="Vx3-1h-DDt" firstAttribute="leading" secondItem="hRy-81-AQr" secondAttribute="leading" constant="36" id="Ykw-PT-JNS"/>
+                            <constraint firstItem="hRy-81-AQr" firstAttribute="trailing" secondItem="cgs-6j-YS3" secondAttribute="trailing" constant="16" id="h4k-bk-a4Q"/>
+                            <constraint firstItem="cgs-6j-YS3" firstAttribute="leading" secondItem="hRy-81-AQr" secondAttribute="leading" constant="16" id="k04-0d-7hA"/>
+                            <constraint firstItem="Vx3-1h-DDt" firstAttribute="top" secondItem="cgs-6j-YS3" secondAttribute="bottom" constant="16" id="l3c-M3-GOp"/>
+                            <constraint firstItem="hRy-81-AQr" firstAttribute="trailing" secondItem="Vx3-1h-DDt" secondAttribute="trailing" constant="36" id="m9L-sw-BO3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hRy-81-AQr"/>
                     </view>
