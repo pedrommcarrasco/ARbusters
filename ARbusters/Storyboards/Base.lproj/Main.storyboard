@@ -173,17 +173,17 @@
                     <connections>
                         <outlet property="sceneView" destination="2aY-Cn-FXD" id="2F2-am-hrH"/>
                         <outlet property="timeLabel" destination="69r-lj-aye" id="5CQ-5i-1Zr"/>
-                        <segue destination="yel-e0-8AM" kind="show" id="cJE-zs-wm0"/>
+                        <segue destination="yel-e0-8AM" kind="show" identifier="result" id="cJE-zs-wm0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-172" y="41.829085457271368"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controlelr-->
         <scene sceneID="dIn-ck-qEl">
             <objects>
-                <viewController id="yel-e0-8AM" sceneMemberID="viewController">
+                <viewController id="yel-e0-8AM" customClass="ResultViewControlelr" customModule="ARbusters" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Oi-7j-e4P">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -28,6 +28,7 @@
 		DF10B4542008FA1E007DC248 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF10B4532008FA1E007DC248 /* ScoreView.swift */; };
 		DF2E12522006CD5300F099FE /* NodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E12512006CD5300F099FE /* NodeType.swift */; };
 		DF2E12542006D51900F099FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E12532006D51900F099FE /* Assets.xcassets */; };
+		DFFBE9E3200B86A70067844B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBE9E2200B86A70067844B /* ResultViewController.swift */; };
 		DFFE34E42007FAC900CAB509 /* LevelOne.sks in Resources */ = {isa = PBXBuildFile; fileRef = DFFE34E32007FAC900CAB509 /* LevelOne.sks */; };
 		DFFE34EA200802E400CAB509 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34E9200802E400CAB509 /* Anchor.swift */; };
 		DFFE34ED20080FEA00CAB509 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34EC20080FEA00CAB509 /* AVPlayer.swift */; };
@@ -63,6 +64,7 @@
 		DF10B4532008FA1E007DC248 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		DF2E12512006CD5300F099FE /* NodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeType.swift; sourceTree = "<group>"; };
 		DF2E12532006D51900F099FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DFFBE9E2200B86A70067844B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		DFFE34E32007FAC900CAB509 /* LevelOne.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelOne.sks; sourceTree = "<group>"; };
 		DFFE34E9200802E400CAB509 /* Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 		DFFE34EC20080FEA00CAB509 /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		DF033354200A4B450070523F /* Result */ = {
 			isa = PBXGroup;
 			children = (
+				DFFBE9E2200B86A70067844B /* ResultViewController.swift */,
 			);
 			path = Result;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				DF0BC2AF2006BC9F00848759 /* GameViewController.swift in Sources */,
 				DF0BC2AB2006BC9F00848759 /* AppDelegate.swift in Sources */,
 				DF0BC2D62006C26600848759 /* GameScene.swift in Sources */,
+				DFFBE9E3200B86A70067844B /* ResultViewController.swift in Sources */,
 				DFFE34F7200819B500CAB509 /* MusicState.swift in Sources */,
 				DFFE34F5200818AA00CAB509 /* MusicManager.swift in Sources */,
 				DFFE34F2200816CF00CAB509 /* UIButton.swift in Sources */,

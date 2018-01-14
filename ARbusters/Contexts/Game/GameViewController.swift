@@ -67,6 +67,7 @@ class GameViewController: UIViewController {
     @IBAction func musicBtnAction(_ sender: UIButton) {
         MusicManager.sharedInstance.changeMusicState(clicked: sender)
     }
+
 }
 
 extension GameViewController: ARSKViewDelegate {
@@ -101,43 +102,53 @@ extension GameViewController: GameSceneProtocol {
         array.append(anchor)
     }
 
-    func userDidKill(anchor: Anchor) {
-        guard let indexKilledAnchor = array.index(of: anchor) else { return }
-        array.remove(at: indexKilledAnchor)
-
-        if array.count == 0 {
-            timer.invalidate()
-            // GANHOU
-        }
-    }
-
     func userPickedBuff(anchor: Anchor) {
         guard let indexKilledAnchor = array.index(of: anchor) else { return }
         array.remove(at: indexKilledAnchor)
     }
 
-    func userDidShotWithBuff() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
-            guard let anchorsArray = self?.array else { return }
-            var boss = 0
-            var buffs = 0
-            for anchor in anchorsArray {
-                if anchor.type == NodeType.antiBossBuff {
-                    buffs+=1
-                }
+    func userDidKill(anchor: Anchor) {
+        guard let indexKilledAnchor = array.index(of: anchor) else { return }
+        array.remove(at: indexKilledAnchor)
 
-                if anchor.type == NodeType.boss {
-                    boss+=1
-                }
-            }
-
-            if boss > buffs {
-                // PERDEU
-                timer.invalidate()
-            }
-        })
+        didWin()
     }
 
+    func userDidShotWithBuff() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
+            self?.didLose()
+        })
+    }
+}
 
+extension GameViewController {
+    
+    // MARK: - GAME LOGIC
+    private func didLose() {
+        var boss = 0
+        var buffs = 0
+        for anchor in array {
+            if anchor.type == NodeType.antiBossBuff {
+                buffs+=1
+            }
+
+            if anchor.type == NodeType.boss {
+                boss+=1
+            }
+        }
+
+        if boss > buffs {
+            // PERDEU
+            timer.invalidate()
+
+        }
+    }
+
+    private func didWin() {
+        if array.count == 0 {
+            timer.invalidate()
+            // GANHOU
+        }
+    }
 
 }
