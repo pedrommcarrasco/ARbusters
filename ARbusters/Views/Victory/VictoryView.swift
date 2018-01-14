@@ -35,12 +35,19 @@ class VictoryView: UIView {
         timeUnitLabel.text = "general-seconds".localizedUppercaseString
 
         if Utils.isNewRecord(timeTook: time) {
-            highestScoreLabel.transform = CGAffineTransform(scaleX: Constants.lowScale,
-                                                            y: Constants.lowScale)
-            UIView.animate(withDuration: Constants.animationDuration) { [weak self] in
-                self?.highestScoreLabel.transform = CGAffineTransform.identity
-                self?.highestScoreLabel.alpha = 1
-            }
+            newHighestScoreEntrance()
         }
+    }
+
+    private func newHighestScoreEntrance() {
+        highestScoreLabel.transform = CGAffineTransform(scaleX: Constants.lowScale,
+                                                        y: Constants.lowScale)
+
+        UIView.animate(withDuration: Constants.animationDuration, delay: 1, options: [],
+                       animations: {
+                        [weak self] in
+                        self?.highestScoreLabel.transform = CGAffineTransform.identity
+                        self?.highestScoreLabel.alpha = 1
+        }, completion: nil)
     }
 }

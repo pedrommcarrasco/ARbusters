@@ -18,7 +18,7 @@
 
 "lost-title" = "You Lost...";
 
-"won-title" = "You Won!";
+"won-title" = "Victory!";
 "won-newHighestScore" = "New Highest Score!";
 
 "highestRecord-noRecords" = "Ops, it seems that you haven't played yet!";
