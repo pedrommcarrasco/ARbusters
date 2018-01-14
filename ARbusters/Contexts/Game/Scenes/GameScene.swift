@@ -10,10 +10,10 @@ import ARKit
 
 
 protocol GameSceneProtocol: class {
-    func createdAnchor(anchor: Anchor)
-    func userDidKill(anchor: Anchor)
-    func userPickedBuff(anchor: Anchor)
-    func userDidShotWithBuff()
+    func gameScene(gameScene: GameScene, created anchor: Anchor)
+    func gameScene(gameScene: GameScene, killed anchor: Anchor)
+    func gameScene(gameScene: GameScene, picked buff: Anchor)
+    func gameSceneDidShotWithBuff(gameScene: GameScene)
 }
 
 class GameScene: SKScene {
@@ -58,7 +58,7 @@ class GameScene: SKScene {
         guard let currentFrame = sceneView.session.currentFrame,
             let lightEstimate = currentFrame.lightEstimate else { return }
         
-        let neutralIntensity: CGFloat = 750
+        let neutralIntensity = Constants.neutralLight
         let ambientIntensity = min(lightEstimate.ambientIntensity, neutralIntensity)
 
         let blendFactor = 1 - ambientIntensity/neutralIntensity
@@ -102,7 +102,7 @@ class GameScene: SKScene {
 
         anchor.type = type
         sceneView.session.add(anchor: anchor)
-        controllerDelegate?.createdAnchor(anchor: anchor)
+        controllerDelegate?.gameScene(gameScene: self, created: anchor)
 
         return type
     }
@@ -120,17 +120,16 @@ class GameScene: SKScene {
         anchor.type = .antiBossBuff
 
         sceneView.session.add(anchor: anchor)
-        controllerDelegate?.createdAnchor(anchor: anchor)
+        controllerDelegate?.gameScene(gameScene: self, created: anchor)
     }
 
     // MARK: - USER INTERACTION
     override func touchesBegan(_ touches: Set<UITouch>,
                                with event: UIEvent?) {
 
-        run(Sounds.fire)
+        run(Sounds.shot)
         guard let hitEnemie = shot() else { return }
         killEnemie(from: hitEnemie)
-
     }
 
     private func shot() -> SKNode? {
@@ -147,7 +146,7 @@ class GameScene: SKScene {
         }
 
         if hasBuff {
-            controllerDelegate?.userDidShotWithBuff()
+            controllerDelegate?.gameSceneDidShotWithBuff(gameScene: self)
         }
 
         hasBuff = false
@@ -164,10 +163,10 @@ class GameScene: SKScene {
         }
 
         let group = SKAction.group([Sounds.hit, action])
-        let sequence = [SKAction.wait(forDuration: 0.25), group]
+        let sequence = [SKAction.wait(forDuration: Constants.soundFxDelay), group]
         hitEnemie.run(SKAction.sequence(sequence))
 
-        controllerDelegate?.userDidKill(anchor: anchor)
+        controllerDelegate?.gameScene(gameScene: self, killed: anchor)
     }
 
     private func detectIfPickedAntiBossWeapon() {
@@ -182,7 +181,7 @@ class GameScene: SKScene {
             let distance = simd_distance(anchor.transform.columns.3,
                                          frame.camera.transform.columns.3)
 
-            if distance < 0.1 {
+            if distance < Constants.pickMinimumDistance {
                 pickupAntiBossWeapon(anchor)
                 break
             }
@@ -190,10 +189,10 @@ class GameScene: SKScene {
     }
 
     private func pickupAntiBossWeapon(_ anchor: Anchor) {
-        run(Sounds.bugspray)
+        run(Sounds.buff)
         sceneView.session.remove(anchor: anchor)
         hasBuff = true
 
-        controllerDelegate?.userPickedBuff(anchor: anchor)
+        controllerDelegate?.gameScene(gameScene: self, picked: anchor)
     }
 }

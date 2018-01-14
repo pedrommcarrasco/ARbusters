@@ -22,6 +22,11 @@ class HomeViewController: UIViewController {
 
     // MARK: - SETUP
     private func setupButtons() {
+        playButton.setTitle("home-play".localizedUppercaseString,
+                            for: .normal)
+        highestScoreButton.setTitle("home-highestScore".localizedUppercaseString,
+                                    for: .normal)
+
         playButton.standartRoundedCorners()
         highestScoreButton.standartRoundedCorners()
     }

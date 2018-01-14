@@ -12,11 +12,13 @@ class MusicManager {
     static let sharedInstance = MusicManager()
     private init() {}
     
-    private var avPlayer: AVPlayer = AVPlayer(name: "theme", extension: "mp3")!
+    private var avPlayer: AVPlayer = AVPlayer(name: Sounds.theme, extension: "mp3")!
     private var musicState: MusicState = .playing
+
+    private let standartVolume: Float = 0.05
     
     func playBackgroundMusic() {
-        avPlayer.volume = 0.05
+        avPlayer.volume = standartVolume
         avPlayer.playLoop()
     }
     
@@ -35,7 +37,7 @@ class MusicManager {
             button.setImage(#imageLiteral(resourceName: "ic-music-turnOn"), for: .normal)
         case .muted:
             musicState = .playing
-            avPlayer.volume = 0.05
+            avPlayer.volume = standartVolume
             button.setImage(#imageLiteral(resourceName: "ic-music-turnOff"), for: .normal)
         }
     }

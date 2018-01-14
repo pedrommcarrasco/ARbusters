@@ -18,6 +18,6 @@ extension Roundable where Self: UIView {
     }
 
     func smallRoundedCorners() {
-        self.layer.cornerRadius = 9
+        self.layer.cornerRadius = 10
     }
 }

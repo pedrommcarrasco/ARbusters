@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  ARbusters
+
+  Created by Pedro Carrasco on 14/01/18.
+  Copyright © 2018 Pedro Carrasco. All rights reserved.
+*/
+
+"home-play" = "Play";
+"home-highestScore" = "Highest Score";
+
+"general-seconds" = "seconds";
+"general-back" = "back";
+"general-ok" = "OK";
+
+"alert-title" = "Alert";
+"alert-description" = "Sorry, but it seems we're having trouble with some ghosts.";
+
+"lost-title" = "You Lost...";
+
+"won-title" = "You Won!";
+"won-newHighestScore" = "New Highest Score!";
+
+"highestRecord-noRecords" = "Ops, it seems that you haven't played yet!";

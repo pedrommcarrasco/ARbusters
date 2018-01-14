@@ -149,30 +149,39 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Euy-P1-8tj">
-                                <rect key="frame" x="96" y="592.5" width="183" height="53"/>
+                                <rect key="frame" x="96" y="589" width="183" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69r-lj-aye">
-                                        <rect key="frame" x="77" y="0.0" width="29" height="38"/>
-                                        <fontDescription key="fontDescription" name="LLPixel" family="LLPixel" pointSize="41"/>
+                                        <rect key="frame" x="70.5" y="0.0" width="42.5" height="45"/>
+                                        <fontDescription key="fontDescription" name="LLPixel" family="LLPixel" pointSize="60"/>
                                         <color key="textColor" red="0.87948554749999996" green="0.31137073040000002" blue="0.37093561889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="seconds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm2-91-VJc">
-                                        <rect key="frame" x="60" y="38" width="63" height="15"/>
+                                        <rect key="frame" x="52.5" y="45" width="78.5" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="qXu-YE-aA5"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="LLPixel" family="LLPixel" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="LLPixel" family="LLPixel" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aim" translatesAutoresizingMaskIntoConstraints="NO" id="JSs-eK-Oep">
+                                <rect key="frame" x="162" y="308" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3tg-Mr-GFX"/>
+                                    <constraint firstAttribute="width" constant="50" id="WYC-Ey-0Qg"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="JSs-eK-Oep" firstAttribute="centerX" secondItem="2aY-Cn-FXD" secondAttribute="centerX" id="2sw-tf-ykc"/>
                             <constraint firstItem="2aY-Cn-FXD" firstAttribute="leading" secondItem="CGF-Af-Ju2" secondAttribute="leading" id="78g-CF-nrN"/>
                             <constraint firstItem="xjU-f1-EJZ" firstAttribute="leading" secondItem="Euy-P1-8tj" secondAttribute="trailing" constant="16" id="81b-P0-gWD"/>
+                            <constraint firstItem="JSs-eK-Oep" firstAttribute="centerY" secondItem="2aY-Cn-FXD" secondAttribute="centerY" id="Gf9-lj-xP7"/>
                             <constraint firstItem="2mc-H7-Zow" firstAttribute="top" secondItem="0nz-zK-ADp" secondAttribute="top" id="I57-rG-pBM"/>
                             <constraint firstItem="0nz-zK-ADp" firstAttribute="bottom" secondItem="wCh-0T-2m0" secondAttribute="bottom" constant="16" id="IHs-gA-91f"/>
                             <constraint firstAttribute="bottom" secondItem="2aY-Cn-FXD" secondAttribute="bottom" id="NLV-MG-2ww"/>
@@ -192,17 +201,18 @@
                     <connections>
                         <outlet property="sceneView" destination="2aY-Cn-FXD" id="2F2-am-hrH"/>
                         <outlet property="timeLabel" destination="69r-lj-aye" id="5CQ-5i-1Zr"/>
-                        <segue destination="yel-e0-8AM" kind="show" identifier="result" id="cJE-zs-wm0"/>
+                        <outlet property="timeUnitLabel" destination="Wm2-91-VJc" id="5s0-lx-ig3"/>
+                        <segue destination="yel-e0-8AM" kind="show" identifier="ResultViewController" id="cJE-zs-wm0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-172" y="41.829085457271368"/>
         </scene>
-        <!--Result View Controlelr-->
+        <!--Result View Controller-->
         <scene sceneID="dIn-ck-qEl">
             <objects>
-                <viewController id="yel-e0-8AM" customClass="ResultViewControlelr" customModule="ARbusters" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yel-e0-8AM" customClass="ResultViewController" customModule="ARbusters" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Oi-7j-e4P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,6 +257,7 @@
                         <viewLayoutGuide key="safeArea" id="hRy-81-AQr"/>
                     </view>
                     <connections>
+                        <outlet property="okButton" destination="Vx3-1h-DDt" id="h0H-qu-W4h"/>
                         <outlet property="resultViewContainer" destination="cgs-6j-YS3" id="L8U-Ec-XSu"/>
                     </connections>
                 </viewController>
@@ -256,6 +267,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="aim" width="250" height="250"/>
         <image name="design-logo" width="250" height="250"/>
         <image name="design-rules" width="245" height="253"/>
         <image name="ic-close" width="64" height="64"/>

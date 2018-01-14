@@ -13,7 +13,9 @@ class VictoryView: UIView {
     // MARK: - OUTLETS
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var highestScoreLabel: UILabel!
-    
+    @IBOutlet weak var timeUnitLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+
     // MARK: - INIT
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,10 +30,14 @@ class VictoryView: UIView {
     // MARK: - SETUP
     func setup(with time: Int) {
         timeLabel.text = String(time)
+        titleLabel.text = "won-title".localizedUppercaseString
+        highestScoreLabel.text = "won-newHighestScore".localizedUppercaseString
+        timeUnitLabel.text = "general-seconds".localizedUppercaseString
 
         if Utils.isNewRecord(timeTook: time) {
-            highestScoreLabel.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
-            UIView.animate(withDuration: 0.33) { [weak self] in
+            highestScoreLabel.transform = CGAffineTransform(scaleX: Constants.lowScale,
+                                                            y: Constants.lowScale)
+            UIView.animate(withDuration: Constants.animationDuration) { [weak self] in
                 self?.highestScoreLabel.transform = CGAffineTransform.identity
                 self?.highestScoreLabel.alpha = 1
             }

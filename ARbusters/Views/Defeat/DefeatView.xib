@@ -15,7 +15,11 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DefeatView" customModule="ARbusters" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DefeatView" customModule="ARbusters" customModuleProvider="target">
+            <connections>
+                <outlet property="titleLabel" destination="cn1-WK-tdt" id="xeq-wr-W6n"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="OYB-Nn-LX3">
             <rect key="frame" x="0.0" y="0.0" width="375" height="455"/>

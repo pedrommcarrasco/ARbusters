@@ -13,25 +13,18 @@ class GameViewController: UIViewController {
     // MARK: - OUTLETS
     @IBOutlet var sceneView: ARSKView!
     @IBOutlet weak var timeLabel: UILabel!
-
+    @IBOutlet weak var timeUnitLabel: UILabel!
+    
     // MARK: - PROPERTIES
-    var array = [Anchor]()
-    let timer = Timer()
+    var anchorsArray = [Anchor]()
+    var timer = Timer()
     var time = 0
     var wonGame = false
 
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTimer()
-
-        let scene = GameScene(size: sceneView.bounds.size)
-        scene.scaleMode = .resizeFill
-        scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        scene.controllerDelegate = self
-
-        sceneView.delegate = self
-        sceneView.presentScene(scene)
+        setup()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -48,16 +41,29 @@ class GameViewController: UIViewController {
         timer.invalidate()
     }
 
-    // MARK: - TIMER
+    // MARK: - SETUP
+    private func setup() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,
+                                     selector: #selector(updateTime),
+                                     userInfo: nil, repeats: true)
+        timeUnitLabel.text = "general-seconds".localizedString
 
-    private func setupTimer() {
-        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        setupScene()
     }
 
-    @objc private func updateTime() {
-        time+=1
-        timeLabel.text = String(time)
-        UIView.transition(with: timeLabel, duration: 0.3, options: .transitionFlipFromTop, animations: nil, completion: nil)
+
+    private func setupScene() {
+        let scene = GameScene(size: sceneView.bounds.size)
+        scene.scaleMode = .resizeFill
+        scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        scene.controllerDelegate = self
+
+        sceneView.delegate = self
+        sceneView.presentScene(scene)
+    }
+
+    private func setupTimer() {
+
     }
 
     // MARK: - ACTIONS
@@ -90,35 +96,35 @@ extension GameViewController: ARSKViewDelegate {
     }
 
     func session(_ session: ARSession, didFailWithError error: Error) {
-        let alert = UIAlertController(title: "Error",
-                                      message: "It seems we're having trouble with some ghosts.",
+        let alert = UIAlertController(title: "alert-title".localizedString,
+                                      message: "alert-description".localizedString,
                                       preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "general-ok".localizedUppercaseString,
+                                      style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 }
 
 extension GameViewController: GameSceneProtocol {
-
-    func createdAnchor(anchor: Anchor) {
-        array.append(anchor)
+    func gameScene(gameScene: GameScene, created anchor: Anchor) {
+        anchorsArray.append(anchor)
     }
 
-    func userPickedBuff(anchor: Anchor) {
-        guard let indexKilledAnchor = array.index(of: anchor) else { return }
-        array.remove(at: indexKilledAnchor)
+    func gameScene(gameScene: GameScene, killed anchor: Anchor) {
+        guard let indexKilledAnchor = anchorsArray.index(of: anchor) else { return }
+        anchorsArray.remove(at: indexKilledAnchor)
+
+        didUserWin()
     }
 
-    func userDidKill(anchor: Anchor) {
-        guard let indexKilledAnchor = array.index(of: anchor) else { return }
-        array.remove(at: indexKilledAnchor)
-
-        didWin()
+    func gameScene(gameScene: GameScene, picked buff: Anchor) {
+        guard let indexBuff = anchorsArray.index(of: buff) else { return }
+        anchorsArray.remove(at: indexBuff)
     }
 
-    func userDidShotWithBuff() {
+    func gameSceneDidShotWithBuff(gameScene: GameScene) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
-            self?.didLose()
+            self?.didUserLose()
         })
     }
 }
@@ -126,10 +132,16 @@ extension GameViewController: GameSceneProtocol {
 extension GameViewController {
 
     // MARK: - GAME LOGIC
-    private func didLose() {
+    @objc private func updateTime() {
+        time+=1
+        timeLabel.text = String(time)
+        UIView.transition(with: timeLabel, duration: 0.3, options: .transitionFlipFromTop, animations: nil, completion: nil)
+    }
+
+    private func didUserLose() {
         var boss = 0
         var buffs = 0
-        for anchor in array {
+        for anchor in anchorsArray {
             if anchor.type == NodeType.antiBossBuff {
                 buffs+=1
             }
@@ -141,18 +153,18 @@ extension GameViewController {
 
         if boss > buffs {
             timer.invalidate()
-            performSegue(withIdentifier: "result", sender: self)
+            performSegue(withIdentifier: ResultViewController.name, sender: self)
         }
     }
 
-    private func didWin() {
-        timer.invalidate()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
-            if self?.array.count == 0 {
+    private func didUserWin() {
+        if anchorsArray.count == 0 {
+            timer.invalidate()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
                 self?.wonGame = true
-                self?.performSegue(withIdentifier: "result", sender: self)
-            }
-        })
+                self?.performSegue(withIdentifier: ResultViewController.name, sender: self)
+            })
+        }
     }
 }
 
@@ -160,8 +172,8 @@ extension GameViewController {
 
     // MARK: - NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "result" {
-            guard let resultViewController = segue.destination as? ResultViewControlelr else { return }
+        if segue.identifier == ResultViewController.name {
+            guard let resultViewController = segue.destination as? ResultViewController else { return }
             resultViewController.didWin = wonGame
             resultViewController.timeTook = time
         }

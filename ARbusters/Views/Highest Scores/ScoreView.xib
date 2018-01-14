@@ -23,6 +23,8 @@
                 <outlet property="popupView" destination="KQT-J1-xQP" id="OZk-gf-y83"/>
                 <outlet property="recordLabel" destination="061-qF-1q2" id="KrY-JY-8qq"/>
                 <outlet property="recordStackView" destination="Ywi-AD-V0K" id="IRd-KF-qX3"/>
+                <outlet property="timeUnitLabel" destination="7Jk-fx-l73" id="Fi0-hO-63p"/>
+                <outlet property="titleLabel" destination="pNg-z3-Kwe" id="WSg-iU-6gQ"/>
                 <outlet property="visualEffectView" destination="1v5-xg-289" id="HSS-om-YUb"/>
             </connections>
         </placeholder>

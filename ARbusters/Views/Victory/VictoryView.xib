@@ -19,6 +19,8 @@
             <connections>
                 <outlet property="highestScoreLabel" destination="im4-iB-md4" id="wpu-Ad-eTi"/>
                 <outlet property="timeLabel" destination="B5H-LM-kCz" id="tHT-wd-zMx"/>
+                <outlet property="timeUnitLabel" destination="Nb3-Fx-dcc" id="Sqa-ik-yJg"/>
+                <outlet property="titleLabel" destination="sQ0-xj-BNf" id="RwM-KO-6Pt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

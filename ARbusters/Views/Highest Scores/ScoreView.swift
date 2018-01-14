@@ -17,7 +17,9 @@ class ScoreView: UIView {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
-    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeUnitLabel: UILabel!
+
     // MARK: - INIT
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,11 +41,17 @@ class ScoreView: UIView {
     }
 
     private func setupUI() {
+        titleLabel.text = "home-highestScore".localizedUppercaseString
+        backButton.setTitle("general-back".localizedUppercaseString, for: .normal)
+        noRecordsLabel.text = "highestRecord-noRecords".localizedString
+        timeUnitLabel.text = "general-seconds".localizedString
+
         backButton.standartRoundedCorners()
         popupView.smallRoundedCorners()
 
-        let highestScore = UserDefaults.standard.integer(forKey: "HighestScore")
-        if highestScore != 0 {
+        let highestScore = UserDefaults.standard
+            .integer(forKey: Constants.highestScoreKey)
+        if highestScore != Constants.emptyScore {
             recordLabel.text = String(highestScore)
             recordStackView.isHidden = false
             noRecordsLabel.isHidden = true
@@ -56,9 +64,10 @@ class ScoreView: UIView {
     // MARK: - ANIMATIONS
     private func animateEntrance() {
         visualEffectView.effect = nil
-        popupView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        popupView.transform = CGAffineTransform(scaleX: Constants.highScale,
+                                                y: Constants.highScale)
         popupView.alpha = 0
-        UIView.animate(withDuration: 0.33) { [weak self] in
+        UIView.animate(withDuration: Constants.animationDuration) { [weak self] in
             self?.visualEffectView.effect = UIBlurEffect(style: .dark)
             self?.popupView.transform = CGAffineTransform.identity
             self?.popupView.alpha = 1
@@ -66,9 +75,10 @@ class ScoreView: UIView {
     }
 
     private func animateExit() {
-        UIView.animate(withDuration: 0.33, animations: { [weak self] in
+        UIView.animate(withDuration: Constants.animationDuration, animations: { [weak self] in
             self?.visualEffectView.effect = nil
-            self?.popupView.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+            self?.popupView.transform = CGAffineTransform(scaleX: Constants.lowScale,
+                                                          y: Constants.lowScale)
             self?.popupView.alpha = 0
         }) { [weak self] bool in
             self?.removeFromSuperview()

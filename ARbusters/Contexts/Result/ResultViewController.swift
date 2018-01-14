@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ResultViewControlelr: UIViewController {
+class ResultViewController: UIViewController {
 
     //MARK: - OUTLETS
     @IBOutlet weak var resultViewContainer: UIView!
-
+    @IBOutlet weak var okButton: UIButton!
+    
     // MARK: - PROPERTIES
     var victoryView: VictoryView?
     var defeatView: DefeatView?
@@ -22,7 +23,7 @@ class ResultViewControlelr: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupResultView()
+        setup()
     }
 
     // MARK: - LIFECYCLE
@@ -37,13 +38,17 @@ class ResultViewControlelr: UIViewController {
     }
 
     // MARK: - SETUP
+    private func setup() {
+        okButton.standartRoundedCorners()
+        okButton.setTitle("general-ok".localizedUppercaseString, for: .normal)
+        setupResultView()
+    }
+
     func setupResultView() {
         if didWin == true {
             didWinSetup()
         } else {
-            defeatView = DefeatView(frame: .zero)
-            guard let defeatView = self.defeatView else { return }
-            resultViewContainer.addSubview(defeatView)
+            didLoseSetup()
         }
     }
 
@@ -52,6 +57,12 @@ class ResultViewControlelr: UIViewController {
         guard let victoryView = self.victoryView else { return }
         victoryView.setup(with: timeTook)
         resultViewContainer.addSubview(victoryView)
+    }
+
+    private func didLoseSetup() {
+        defeatView = DefeatView(frame: .zero)
+        guard let defeatView = self.defeatView else { return }
+        resultViewContainer.addSubview(defeatView)
     }
 
     // MARK: - ACTIONS
