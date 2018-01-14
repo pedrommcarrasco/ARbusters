@@ -30,6 +30,7 @@
 		DF2E12542006D51900F099FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF2E12532006D51900F099FE /* Assets.xcassets */; };
 		DFFBE9E3200B86A70067844B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBE9E2200B86A70067844B /* ResultViewController.swift */; };
 		DFFBE9E5200B91890067844B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBE9E4200B91890067844B /* UIView.swift */; };
+		DFFBE9EA200BC0220067844B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBE9E9200BC0220067844B /* Utils.swift */; };
 		DFFE34E42007FAC900CAB509 /* LevelOne.sks in Resources */ = {isa = PBXBuildFile; fileRef = DFFE34E32007FAC900CAB509 /* LevelOne.sks */; };
 		DFFE34EA200802E400CAB509 /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34E9200802E400CAB509 /* Anchor.swift */; };
 		DFFE34ED20080FEA00CAB509 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFE34EC20080FEA00CAB509 /* AVPlayer.swift */; };
@@ -67,6 +68,7 @@
 		DF2E12532006D51900F099FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFFBE9E2200B86A70067844B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		DFFBE9E4200B91890067844B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		DFFBE9E9200BC0220067844B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DFFE34E32007FAC900CAB509 /* LevelOne.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LevelOne.sks; sourceTree = "<group>"; };
 		DFFE34E9200802E400CAB509 /* Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 		DFFE34EC20080FEA00CAB509 /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		DF0BC2A92006BC9F00848759 /* ARbusters */ = {
 			isa = PBXGroup;
 			children = (
+				DFFBE9E8200BC00E0067844B /* Utils */,
 				DF033356200A4BC20070523F /* Model */,
 				DF033350200A4AFF0070523F /* Contexts */,
 				DF0BC2BE2006BEA300848759 /* Storyboards */,
@@ -277,6 +280,14 @@
 				DF10B4512008F7D9007DC248 /* LLPIXEL3.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DFFBE9E8200BC00E0067844B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DFFBE9E9200BC0220067844B /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		DFFE34EB20080FD900CAB509 /* Extensions */ = {
@@ -408,6 +419,7 @@
 				DF2E12522006CD5300F099FE /* NodeType.swift in Sources */,
 				DFFE34F920081BFB00CAB509 /* HomeViewController.swift in Sources */,
 				DF03334E200A217C0070523F /* DefeatView.swift in Sources */,
+				DFFBE9EA200BC0220067844B /* Utils.swift in Sources */,
 				DF03334A200A1F370070523F /* VictoryView.swift in Sources */,
 				DFFE34EA200802E400CAB509 /* Anchor.swift in Sources */,
 				DFFBE9E5200B91890067844B /* UIView.swift in Sources */,

@@ -113,9 +113,7 @@ extension GameViewController: GameSceneProtocol {
         guard let indexKilledAnchor = array.index(of: anchor) else { return }
         array.remove(at: indexKilledAnchor)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
-            self?.didWin()
-        })
+        didWin()
     }
 
     func userDidShotWithBuff() {
@@ -148,11 +146,13 @@ extension GameViewController {
     }
 
     private func didWin() {
-        if array.count == 0 {
-            timer.invalidate()
-            wonGame = true
-            performSegue(withIdentifier: "result", sender: self)
-        }
+        timer.invalidate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
+            if self?.array.count == 0 {
+                self?.wonGame = true
+                self?.performSegue(withIdentifier: "result", sender: self)
+            }
+        })
     }
 }
 

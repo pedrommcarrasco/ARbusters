@@ -16,6 +16,7 @@ class ScoreView: UIView {
     @IBOutlet weak var noRecordsLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
     
     // MARK: - INIT
     override init(frame: CGRect) {
@@ -32,7 +33,12 @@ class ScoreView: UIView {
 
     // MARK: - SETUP
     func setup() {
-        
+        setupUI()
+        animateEntrance()
+
+    }
+
+    private func setupUI() {
         backButton.standartRoundedCorners()
         popupView.smallRoundedCorners()
 
@@ -47,8 +53,30 @@ class ScoreView: UIView {
         }
     }
 
+    // MARK: - ANIMATIONS
+    private func animateEntrance() {
+        visualEffectView.effect = nil
+        popupView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        popupView.alpha = 0
+        UIView.animate(withDuration: 0.33) { [weak self] in
+            self?.visualEffectView.effect = UIBlurEffect(style: .dark)
+            self?.popupView.transform = CGAffineTransform.identity
+            self?.popupView.alpha = 1
+        }
+    }
+
+    private func animateExit() {
+        UIView.animate(withDuration: 0.33, animations: { [weak self] in
+            self?.visualEffectView.effect = nil
+            self?.popupView.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+            self?.popupView.alpha = 0
+        }) { [weak self] bool in
+            self?.removeFromSuperview()
+        }
+    }
+
     // MARK: - ACTIONS
     @IBAction func backBtnAction(_ sender: Any) {
-        removeFromSuperview()
+        animateExit()
     }
 }

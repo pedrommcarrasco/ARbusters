@@ -23,6 +23,7 @@
                 <outlet property="popupView" destination="KQT-J1-xQP" id="OZk-gf-y83"/>
                 <outlet property="recordLabel" destination="061-qF-1q2" id="KrY-JY-8qq"/>
                 <outlet property="recordStackView" destination="Ywi-AD-V0K" id="IRd-KF-qX3"/>
+                <outlet property="visualEffectView" destination="1v5-xg-289" id="HSS-om-YUb"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -55,8 +56,8 @@
                     <rect key="frame" x="36" y="243.5" width="303" height="200"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highest score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNg-z3-Kwe">
-                            <rect key="frame" x="16" y="16" width="271" height="21"/>
-                            <fontDescription key="fontDescription" name="LLPixel" family="LLPixel" pointSize="17"/>
+                            <rect key="frame" x="16" y="16" width="271" height="31.5"/>
+                            <fontDescription key="fontDescription" name="LLPixel" family="LLPixel" pointSize="26"/>
                             <color key="textColor" red="0.87948554749999996" green="0.31137073040000002" blue="0.37093561889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -66,7 +67,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="32" id="mhl-mA-YKh"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="LLPixel" family="LLPixel" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="LLPixel" family="LLPixel" pointSize="12"/>
                             <state key="normal" title="BACK">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -75,13 +76,13 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ops, it seems that you haven't played yet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgn-5H-MEL">
-                            <rect key="frame" x="16" y="53" width="271" height="39"/>
+                            <rect key="frame" x="16" y="63.5" width="271" height="39"/>
                             <fontDescription key="fontDescription" name="LLPixel" family="LLPixel" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ywi-AD-V0K">
-                            <rect key="frame" x="16" y="53" width="271" height="53.5"/>
+                            <rect key="frame" x="16" y="63.5" width="271" height="53.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="061-qF-1q2">
                                     <rect key="frame" x="121" y="0.0" width="29" height="38.5"/>
