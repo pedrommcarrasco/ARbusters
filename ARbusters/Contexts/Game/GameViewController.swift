@@ -96,21 +96,48 @@ extension GameViewController: ARSKViewDelegate {
 }
 
 extension GameViewController: GameSceneProtocol {
+
     func createdAnchor(anchor: Anchor) {
         array.append(anchor)
     }
 
-    func userDidKill(node: Anchor) {
+    func userDidKill(anchor: Anchor) {
+        guard let indexKilledAnchor = array.index(of: anchor) else { return }
+        array.remove(at: indexKilledAnchor)
 
+        if array.count == 0 {
+            timer.invalidate()
+            // GANHOU
+        }
     }
 
-    func userPickedBuff() {
-
+    func userPickedBuff(anchor: Anchor) {
+        guard let indexKilledAnchor = array.index(of: anchor) else { return }
+        array.remove(at: indexKilledAnchor)
     }
 
-    func userShotWithBuff() {
+    func userDidShotWithBuff() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
+            guard let anchorsArray = self?.array else { return }
+            var boss = 0
+            var buffs = 0
+            for anchor in anchorsArray {
+                if anchor.type == NodeType.antiBossBuff {
+                    buffs+=1
+                }
 
+                if anchor.type == NodeType.boss {
+                    boss+=1
+                }
+            }
+
+            if boss > buffs {
+                // PERDEU
+                timer.invalidate()
+            }
+        })
     }
+
 
 
 }

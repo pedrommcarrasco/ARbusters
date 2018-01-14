@@ -11,9 +11,9 @@ import ARKit
 
 protocol GameSceneProtocol: class {
     func createdAnchor(anchor: Anchor)
-    func userDidKill(node: Anchor)
-    func userPickedBuff()
-    func userShotWithBuff()
+    func userDidKill(anchor: Anchor)
+    func userPickedBuff(anchor: Anchor)
+    func userDidShotWithBuff()
 }
 
 class GameScene: SKScene {
@@ -146,13 +146,18 @@ class GameScene: SKScene {
             }
         }
 
+        if hasBuff {
+            controllerDelegate?.userDidShotWithBuff()
+        }
+
         hasBuff = false
+
         return hitEnemie
     }
 
     private func killEnemie(from node: SKNode?) {
         guard let hitEnemie = node,
-            let anchor = sceneView.anchor(for: hitEnemie) else { return }
+            let anchor = sceneView.anchor(for: hitEnemie) as? Anchor else { return }
 
         let action = SKAction.run {
             self.sceneView.session.remove(anchor: anchor)
@@ -161,6 +166,8 @@ class GameScene: SKScene {
         let group = SKAction.group([Sounds.hit, action])
         let sequence = [SKAction.wait(forDuration: 0.25), group]
         hitEnemie.run(SKAction.sequence(sequence))
+
+        controllerDelegate?.userDidKill(anchor: anchor)
     }
 
     private func detectIfPickedAntiBossWeapon() {
@@ -168,7 +175,8 @@ class GameScene: SKScene {
         for anchor in frame.anchors {
 
             guard let node = sceneView.node(for: anchor),
-                node.name == NodeType.antiBossBuff.rawValue
+                node.name == NodeType.antiBossBuff.rawValue,
+                let anchor = anchor as? Anchor
                 else { continue }
 
             let distance = simd_distance(anchor.transform.columns.3,
@@ -181,9 +189,11 @@ class GameScene: SKScene {
         }
     }
 
-    private func pickupAntiBossWeapon(_ anchor: ARAnchor) {
+    private func pickupAntiBossWeapon(_ anchor: Anchor) {
         run(Sounds.bugspray)
         sceneView.session.remove(anchor: anchor)
         hasBuff = true
+
+        controllerDelegate?.userPickedBuff(anchor: anchor)
     }
 }
