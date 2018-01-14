@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
 
     // MARK: - OUTLETS
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var highestScoreButton: UIButton!
 
     // MARK: - LIFECICLE
     override func viewDidLoad() {
@@ -22,5 +23,12 @@ class HomeViewController: UIViewController {
     // MARK: - SETUP
     private func setupButtons() {
         playButton.standartRoundedCorners()
+        highestScoreButton.standartRoundedCorners()
     }
+
+    // MARK: - ACTIONS
+    @IBAction func highestScoreBtnAction(_ sender: UIButton) {
+        view.addSubview(ScoreView(frame: view.bounds))
+    }
+
 }

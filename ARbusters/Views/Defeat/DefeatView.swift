@@ -9,5 +9,15 @@
 import UIKit
 
 class DefeatView: UIView {
-    
+
+    // MARK: - INIT
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        loadNib()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        loadNib()
+    }
 }

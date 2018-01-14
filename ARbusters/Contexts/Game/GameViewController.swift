@@ -17,7 +17,8 @@ class GameViewController: UIViewController {
     // MARK: - PROPERTIES
     var array = [Anchor]()
     let timer = Timer()
-    var time = -1
+    var time = 0
+    var wonGame = false
 
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
@@ -56,6 +57,7 @@ class GameViewController: UIViewController {
     @objc private func updateTime() {
         time+=1
         timeLabel.text = String(time)
+        UIView.transition(with: timeLabel, duration: 0.3, options: .transitionFlipFromTop, animations: nil, completion: nil)
     }
 
     // MARK: - ACTIONS
@@ -111,7 +113,9 @@ extension GameViewController: GameSceneProtocol {
         guard let indexKilledAnchor = array.index(of: anchor) else { return }
         array.remove(at: indexKilledAnchor)
 
-        didWin()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
+            self?.didWin()
+        })
     }
 
     func userDidShotWithBuff() {
@@ -122,7 +126,7 @@ extension GameViewController: GameSceneProtocol {
 }
 
 extension GameViewController {
-    
+
     // MARK: - GAME LOGIC
     private func didLose() {
         var boss = 0
@@ -138,17 +142,28 @@ extension GameViewController {
         }
 
         if boss > buffs {
-            // PERDEU
             timer.invalidate()
-
+            performSegue(withIdentifier: "result", sender: self)
         }
     }
 
     private func didWin() {
         if array.count == 0 {
             timer.invalidate()
-            // GANHOU
+            wonGame = true
+            performSegue(withIdentifier: "result", sender: self)
         }
     }
+}
 
+extension GameViewController {
+
+    // MARK: - NAVIGATION
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "result" {
+            guard let resultViewController = segue.destination as? ResultViewControlelr else { return }
+            resultViewController.didWin = wonGame
+            resultViewController.timeTook = time
+        }
+    }
 }
