@@ -21,15 +21,15 @@ class ResultViewController: UIViewController {
     var didWin: Bool?
     var timeTook: Int = 0
 
+    // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
 
-    // MARK: - LIFECYCLE
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        okButton.animate(from: .bottom, and: 1)
         if didWin == true {
             victoryView?.frame = resultViewContainer.bounds
         } else {

@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DefeatView" customModule="ARbusters" customModuleProvider="target">
             <connections>
+                <outlet property="defeatImageView" destination="xFT-uE-ex5" id="i2M-vP-AdT"/>
                 <outlet property="titleLabel" destination="cn1-WK-tdt" id="xeq-wr-W6n"/>
             </connections>
         </placeholder>

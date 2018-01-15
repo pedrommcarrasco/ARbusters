@@ -12,6 +12,7 @@ class DefeatView: UIView {
 
     // MARK: - OUTLETS
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var defeatImageView: UIImageView!
 
     // MARK: - INIT
     override init(frame: CGRect) {
@@ -29,6 +30,9 @@ class DefeatView: UIView {
     // MARK: - SETUP
     private func setup() {
         titleLabel.text = "lost-title".localizedUppercaseString
+
+        titleLabel.animate(from: .top, and: 1)
+        defeatImageView.animate(from: .top, and: 2)
     }
 }
 

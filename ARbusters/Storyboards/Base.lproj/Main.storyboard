@@ -53,7 +53,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OM9-Q6-Dj3">
-                                <rect key="frame" x="112" y="619" width="151.5" height="32"/>
+                                <rect key="frame" x="112.5" y="619" width="151.5" height="32"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.30980392159999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="aat-RI-AEd"/>
@@ -103,6 +103,7 @@
                     <navigationItem key="navigationItem" id="Yd4-An-Cge"/>
                     <connections>
                         <outlet property="highestScoreButton" destination="OM9-Q6-Dj3" id="8mG-Wy-72E"/>
+                        <outlet property="howToPlayImageView" destination="hIL-iw-GS9" id="KWj-bH-Mma"/>
                         <outlet property="playButton" destination="FBv-uz-tf1" id="fL5-is-eOu"/>
                     </connections>
                 </viewController>
@@ -200,6 +201,7 @@
                     </view>
                     <connections>
                         <outlet property="sceneView" destination="2aY-Cn-FXD" id="2F2-am-hrH"/>
+                        <outlet property="sightImageView" destination="JSs-eK-Oep" id="Dbu-sY-aSt"/>
                         <outlet property="timeLabel" destination="69r-lj-aye" id="5CQ-5i-1Zr"/>
                         <outlet property="timeUnitLabel" destination="Wm2-91-VJc" id="5s0-lx-ig3"/>
                         <segue destination="yel-e0-8AM" kind="show" identifier="ResultViewController" id="cJE-zs-wm0"/>

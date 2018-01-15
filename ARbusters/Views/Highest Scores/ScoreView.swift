@@ -12,7 +12,7 @@ class ScoreView: UIView {
 
     // MARK: - OUTLETS
     @IBOutlet weak var recordStackView: UIStackView!
-    @IBOutlet weak var recordLabel: UILabel!
+    @IBOutlet weak var recordLabel: CountingLabel!
     @IBOutlet weak var noRecordsLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var popupView: UIView!
@@ -52,7 +52,7 @@ class ScoreView: UIView {
         let highestScore = UserDefaults.standard
             .integer(forKey: Constants.highestScoreKey)
         if highestScore != Constants.emptyScore {
-            recordLabel.text = String(highestScore)
+            recordLabel.count(til: Float(highestScore), with: Constants.longerAnimationDuration)
             recordStackView.isHidden = false
             noRecordsLabel.isHidden = true
         } else {

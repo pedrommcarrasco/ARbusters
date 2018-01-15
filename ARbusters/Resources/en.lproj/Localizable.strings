@@ -1,13 +1,13 @@
-/* 
-  Localizable.strings
-  ARbusters
+/*
+ Localizable.strings
+ ARbusters
 
-  Created by Pedro Carrasco on 14/01/18.
-  Copyright © 2018 Pedro Carrasco. All rights reserved.
-*/
+ Created by Pedro Carrasco on 14/01/18.
+ Copyright © 2018 Pedro Carrasco. All rights reserved.
+ */
 
 "home-play" = "Play";
-"home-highestScore" = "Highest Score";
+"home-highestScore" = "Fastest Run";
 
 "general-seconds" = "seconds";
 "general-back" = "back";
@@ -19,6 +19,7 @@
 "lost-title" = "You Lost...";
 
 "won-title" = "Victory!";
-"won-newHighestScore" = "New Highest Score!";
+"won-newHighestScore" = "New Fastest Run!";
 
 "highestRecord-noRecords" = "Ops, it seems that you haven't played yet!";
+

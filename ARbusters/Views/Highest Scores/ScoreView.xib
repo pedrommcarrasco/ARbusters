@@ -86,7 +86,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ywi-AD-V0K">
                             <rect key="frame" x="16" y="63.5" width="271" height="53.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="061-qF-1q2">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="061-qF-1q2" customClass="CountingLabel" customModule="ARbusters" customModuleProvider="target">
                                     <rect key="frame" x="121" y="0.0" width="29" height="38.5"/>
                                     <fontDescription key="fontDescription" name="LLPixel" family="LLPixel" pointSize="41"/>
                                     <color key="textColor" red="0.87948554749999996" green="0.31137073040000002" blue="0.37093561889999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

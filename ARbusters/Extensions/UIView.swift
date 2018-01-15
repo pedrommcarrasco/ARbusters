@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIView: Roundable {
+extension UIView: Roundable, Animatable {
     func loadNib() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName:  String(describing: type(of: self)), bundle: bundle)

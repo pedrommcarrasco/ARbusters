@@ -34,7 +34,7 @@
                     <color key="textColor" red="0.87843137250000003" green="0.30980392159999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5H-LM-kCz">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="36" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5H-LM-kCz" customClass="CountingLabel" customModule="ARbusters" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="49" width="375" height="103"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="103" id="CTV-TS-3to"/>

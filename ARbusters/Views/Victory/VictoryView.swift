@@ -11,7 +11,7 @@ import UIKit
 class VictoryView: UIView {
 
     // MARK: - OUTLETS
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeLabel: CountingLabel!
     @IBOutlet weak var highestScoreLabel: UILabel!
     @IBOutlet weak var timeUnitLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -29,25 +29,18 @@ class VictoryView: UIView {
 
     // MARK: - SETUP
     func setup(with time: Int) {
-        timeLabel.text = String(time)
         titleLabel.text = "won-title".localizedUppercaseString
         highestScoreLabel.text = "won-newHighestScore".localizedUppercaseString
-        timeUnitLabel.text = "general-seconds".localizedUppercaseString
+        timeUnitLabel.text = "general-seconds".localizedString
+
+        titleLabel.animate(from: .top, and: 1)
+        timeLabel.animate(from: .top, and: 2)
+        timeLabel.count(til: Float(time), with: Constants.longerAnimationDuration)
+        timeUnitLabel.animate(from: .top, and: 3)
 
         if Utils.isNewRecord(timeTook: time) {
-            newHighestScoreEntrance()
+            highestScoreLabel.animate(from: .bottom, and: 4)
         }
     }
-
-    private func newHighestScoreEntrance() {
-        highestScoreLabel.transform = CGAffineTransform(scaleX: Constants.lowScale,
-                                                        y: Constants.lowScale)
-
-        UIView.animate(withDuration: Constants.animationDuration, delay: 1, options: [],
-                       animations: {
-                        [weak self] in
-                        self?.highestScoreLabel.transform = CGAffineTransform.identity
-                        self?.highestScoreLabel.alpha = 1
-        }, completion: nil)
-    }
 }
+

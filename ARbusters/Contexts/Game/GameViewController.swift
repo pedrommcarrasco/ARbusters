@@ -8,13 +8,14 @@
 
 import ARKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, Alertable {
 
     // MARK: - OUTLETS
     @IBOutlet var sceneView: ARSKView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeUnitLabel: UILabel!
-    
+    @IBOutlet weak var sightImageView: UIImageView!
+
     // MARK: - PROPERTIES
     var anchorsArray = [Anchor]()
     var timer = Timer()
@@ -62,10 +63,6 @@ class GameViewController: UIViewController {
         sceneView.presentScene(scene)
     }
 
-    private func setupTimer() {
-
-    }
-
     // MARK: - ACTIONS
     @IBAction func closeBtnAction(_ sender: UIButton) {
         sender.touchAnimation()
@@ -96,12 +93,8 @@ extension GameViewController: ARSKViewDelegate {
     }
 
     func session(_ session: ARSession, didFailWithError error: Error) {
-        let alert = UIAlertController(title: "alert-title".localizedString,
-                                      message: "alert-description".localizedString,
-                                      preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "general-ok".localizedUppercaseString,
-                                      style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        timer.invalidate()
+        self.presentAlert()
     }
 }
 
@@ -112,8 +105,8 @@ extension GameViewController: GameSceneProtocol {
 
     func gameScene(gameScene: GameScene, killed anchor: Anchor) {
         guard let indexKilledAnchor = anchorsArray.index(of: anchor) else { return }
-        anchorsArray.remove(at: indexKilledAnchor)
 
+        anchorsArray.remove(at: indexKilledAnchor)
         didUserWin()
     }
 
