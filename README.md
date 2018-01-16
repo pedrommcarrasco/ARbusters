@@ -1,13 +1,15 @@
 # ARbusters
 
-![alt text](https://github.com/pedrommcarrasco/ARbusters/tree/master/Media/screenshots.png)
+![alt text](https://github.com/pedrommcarrasco/ARbusters/tree/master/screenshots.png)
 
 ----
 ## What's ARbusters?
 ARbusters is an augmented reality game in a pixel/billboard style. The gameplay is pretty simple, look around you and kill every enemy under the lowest time possible!
 
 ## Gameplay
-[![ARbusters Gameplay](https://github.com/pedrommcarrasco/ARbusters/tree/master/Media/thumbnail.png)](https://youtu.be/-gL7m_d2hdY "ARbusters Gameplay")
+[![ARbusters Gameplay](https://github.com/pedrommcarrasco/ARbusters/tree/master/thumbnail.png)](https://youtu.be/-gL7m_d2hdY "Click to watch ARbusters) Gameplay")
+*Sound has some delay (in the video only) because of the rendering codec used (.wmv) *
+
 
 
 ## Technologies
