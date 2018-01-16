@@ -8,7 +8,7 @@ ARbusters is an augmented reality game in a pixel/billboard style. The gameplay 
 
 ## Gameplay
 [![ARbusters Gameplay](https://github.com/pedrommcarrasco/ARbusters/blob/master/thumbnail.png)](https://youtu.be/-gL7m_d2hdY "Click to watch ARbusters) Gameplay")
-*Sound has some delay (in the video only) because of the rendering codec used (.wmv) *
+*Sound's delayed (in the video only) because of the coded used rendering the video (.wmv)*
 
 
 
