@@ -14,7 +14,7 @@ ARbusters is an augmented reality game in a pixel/billboard style. The gameplay 
 
 ## Technologies
 * ARKit - ARSKView, ARSession, ARFrame, ARAnchor
-* SceneKit - SKScene, SKSpriteNode, SKAction, SKNode
+* SpriteKit - SKScene, SKSpriteNode, SKAction, SKNode
 * AVPlayer - Background Music (turn on/off)
 * UserDefaults  - Highest Score
 
