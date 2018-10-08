@@ -29,7 +29,7 @@ class ResultViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        okButton.animate(from: .bottom, and: 1)
+        okButton.animate(from: .bottom, delayMultiplier: 1)
         if didWin == true {
             victoryView?.frame = resultViewContainer.bounds
         } else {
@@ -40,7 +40,7 @@ class ResultViewController: UIViewController {
     // MARK: - SETUP
     private func setup() {
         okButton.standartRoundedCorners()
-        okButton.setTitle("general-ok".localizedUppercaseString, for: .normal)
+        okButton.setTitle(StringKey.General.ok.localizedUppercaseString, for: .normal)
         setupResultView()
     }
 

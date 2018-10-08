@@ -31,7 +31,7 @@ extension AVPlayer {
     }
 
     private func playFromStart() {
-        seek(to: CMTimeMake(0, 1))
+        seek(to: CMTimeMake(value: 0, timescale: 1))
         play()
     }
 }

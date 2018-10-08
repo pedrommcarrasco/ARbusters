@@ -11,14 +11,14 @@ import UIKit
 class ScoreView: UIView {
 
     // MARK: - OUTLETS
-    @IBOutlet weak var recordStackView: UIStackView!
-    @IBOutlet weak var recordLabel: CountingLabel!
-    @IBOutlet weak var noRecordsLabel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var visualEffectView: UIVisualEffectView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var timeUnitLabel: UILabel!
+    @IBOutlet private weak var recordStackView: UIStackView!
+    @IBOutlet private weak var recordLabel: CountingLabel!
+    @IBOutlet private weak var noRecordsLabel: UILabel!
+    @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet private weak var popupView: UIView!
+    @IBOutlet private weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var timeUnitLabel: UILabel!
 
     // MARK: - INIT
     override init(frame: CGRect) {
@@ -37,20 +37,18 @@ class ScoreView: UIView {
     func setup() {
         setupUI()
         animateEntrance()
-
     }
 
     private func setupUI() {
-        titleLabel.text = "home-highestScore".localizedUppercaseString
-        backButton.setTitle("general-back".localizedUppercaseString, for: .normal)
-        noRecordsLabel.text = "highestRecord-noRecords".localizedString
-        timeUnitLabel.text = "general-seconds".localizedString
+        titleLabel.text = StringKey.Home.highestScore.localizedUppercaseString
+        backButton.setTitle(StringKey.General.back.localizedUppercaseString, for: .normal)
+        noRecordsLabel.text = StringKey.Records.none.localizedString
+        timeUnitLabel.text = StringKey.General.seconds.localizedString
 
         backButton.standartRoundedCorners()
         popupView.smallRoundedCorners()
 
-        let highestScore = UserDefaults.standard
-            .integer(forKey: Constants.highestScoreKey)
+        let highestScore = UserDefaults.standard.integer(forKey: Constants.highestScoreKey)
         if highestScore != Constants.emptyScore {
             recordLabel.count(til: Float(highestScore), with: Constants.longerAnimationDuration)
             recordStackView.isHidden = false

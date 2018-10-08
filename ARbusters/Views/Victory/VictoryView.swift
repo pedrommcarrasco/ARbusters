@@ -29,17 +29,17 @@ class VictoryView: UIView {
 
     // MARK: - SETUP
     func setup(with time: Int) {
-        titleLabel.text = "won-title".localizedUppercaseString
-        highestScoreLabel.text = "won-newHighestScore".localizedUppercaseString
-        timeUnitLabel.text = "general-seconds".localizedString
+        titleLabel.text = StringKey.State.Victory.title.localizedUppercaseString
+        highestScoreLabel.text = StringKey.State.Victory.newHighScore.localizedUppercaseString
+        timeUnitLabel.text = StringKey.General.seconds.localizedString
 
-        titleLabel.animate(from: .top, and: 1)
-        timeLabel.animate(from: .top, and: 2)
+        titleLabel.animate(from: .top, delayMultiplier: 1)
+        timeLabel.animate(from: .top, delayMultiplier: 2)
         timeLabel.count(til: Float(time), with: Constants.longerAnimationDuration)
-        timeUnitLabel.animate(from: .top, and: 3)
+        timeUnitLabel.animate(from: .top, delayMultiplier: 3)
 
         if Utils.isNewRecord(timeTook: time) {
-            highestScoreLabel.animate(from: .bottom, and: 4)
+            highestScoreLabel.animate(from: .bottom, delayMultiplier: 4)
         }
     }
 }

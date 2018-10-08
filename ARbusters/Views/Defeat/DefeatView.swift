@@ -29,10 +29,10 @@ class DefeatView: UIView {
 
     // MARK: - SETUP
     private func setup() {
-        titleLabel.text = "lost-title".localizedUppercaseString
+        titleLabel.text = StringKey.State.Defeat.title.localizedUppercaseString
 
-        titleLabel.animate(from: .top, and: 1)
-        defeatImageView.animate(from: .top, and: 2)
+        titleLabel.animate(from: .top, delayMultiplier: 1)
+        defeatImageView.animate(from: .top, delayMultiplier: 2)
     }
 }
 

@@ -17,7 +17,7 @@ protocol Animatable {}
 
 extension Animatable where Self: UIView {
 
-    func animate(from type: AnimationFromType, and delayMultiplier: Double) {
+    func animate(from type: AnimationFromType, delayMultiplier: Double) {
         let extra: CGFloat
         switch type {
         case .top:

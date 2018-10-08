@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2083E0A1216BD84E0003F599 /* StringKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083E0A0216BD84E0003F599 /* StringKey.swift */; };
 		DF033346200A1DD30070523F /* VictoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF033345200A1DD30070523F /* VictoryView.xib */; };
 		DF03334A200A1F370070523F /* VictoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF033349200A1F370070523F /* VictoryView.swift */; };
 		DF03334C200A1F420070523F /* DefeatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF03334B200A1F420070523F /* DefeatView.xib */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2083E0A0216BD84E0003F599 /* StringKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringKey.swift; sourceTree = "<group>"; };
 		DF033345200A1DD30070523F /* VictoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VictoryView.xib; sourceTree = "<group>"; };
 		DF033349200A1F370070523F /* VictoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryView.swift; sourceTree = "<group>"; };
 		DF03334B200A1F420070523F /* DefeatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefeatView.xib; sourceTree = "<group>"; };
@@ -101,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2083E09F216BD8400003F599 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				DFFBE9F9200C06310067844B /* Localizable.strings */,
+				2083E0A0216BD84E0003F599 /* StringKey.swift */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
 		DF033350200A4AFF0070523F /* Contexts */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,11 +229,11 @@
 		DF0BC2BF2006BEB900848759 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2083E09F216BD8400003F599 /* Strings */,
 				DF10B4502008F7CF007DC248 /* Fonts */,
 				DFFE34EE2008106000CAB509 /* Background Music */,
 				DF2E12532006D51900F099FE /* Assets.xcassets */,
 				DF0BC2C52006C09000848759 /* Sound Effects */,
-				DFFBE9F9200C06310067844B /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -366,11 +377,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Pedro Carrasco";
 				TargetAttributes = {
 					DF0BC2A62006BC9F00848759 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -446,6 +458,7 @@
 				DFFBE9FF200C0ABB0067844B /* Identifiable.swift in Sources */,
 				DF10B4542008FA1E007DC248 /* ScoreView.swift in Sources */,
 				DFFE34ED20080FEA00CAB509 /* AVPlayer.swift in Sources */,
+				2083E0A1216BD84E0003F599 /* StringKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +506,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -500,6 +514,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -550,6 +565,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -557,6 +573,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -596,7 +613,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Pedro-Carrasco.ARbusters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -611,7 +628,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Pedro-Carrasco.ARbusters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

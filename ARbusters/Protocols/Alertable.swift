@@ -12,10 +12,10 @@ protocol Alertable {}
 
 extension Alertable where Self: UIViewController {
     func presentAlert() {
-        let alert = UIAlertController(title: "alert-title".localizedString,
-                                      message: "alert-description".localizedString,
-                                      preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "general-ok".localizedUppercaseString,
+        let alert = UIAlertController(title: StringKey.Alert.title.localizedString,
+                                      message: StringKey.Alert.description.localizedString,
+                                      preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: StringKey.General.ok.localizedUppercaseString,
                                       style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
