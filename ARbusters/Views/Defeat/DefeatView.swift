@@ -8,31 +8,41 @@
 
 import UIKit
 
+// MARK: - DefeatView
 class DefeatView: UIView {
+    
+    // MARK: Constant
+    private enum Constant {
+        static let titleMultiplier = 1.0
+        static let defeatMultiplier = 2.0
+    }
 
-    // MARK: - OUTLETS
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var defeatImageView: UIImageView!
+    // MARK: Outlets
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var defeatImageView: UIImageView!
 
-    // MARK: - INIT
+    // MARK: Initilizers
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
-        setup()
+        configure()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         loadNib()
-        setup()
+        configure()
     }
+}
 
-    // MARK: - SETUP
-    private func setup() {
+// MARK: - Configuration
+private extension DefeatView {
+    
+    func configure() {
         titleLabel.text = StringKey.State.Defeat.title.localizedUppercaseString
-
-        titleLabel.animate(from: .top, delayMultiplier: 1)
-        defeatImageView.animate(from: .top, delayMultiplier: 2)
+        
+        titleLabel.animate(from: .top, delayMultiplier: Constant.titleMultiplier)
+        defeatImageView.animate(from: .top, delayMultiplier: Constant.defeatMultiplier)
     }
 }
 

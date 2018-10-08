@@ -45,8 +45,8 @@ private extension HomeViewController {
         playButton.setTitle(StringKey.Home.play.localizedUppercaseString, for: .normal)
         highestScoreButton.setTitle(StringKey.Home.highestScore.localizedUppercaseString, for: .normal)
         
-        playButton.standartRoundedCorners()
-        highestScoreButton.standartRoundedCorners()
+        playButton.standardRoundedCorners()
+        highestScoreButton.standardRoundedCorners()
     }
 }
 

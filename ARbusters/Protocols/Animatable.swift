@@ -13,7 +13,9 @@ enum AnimationFromType {
     case bottom
 }
 
-protocol Animatable {}
+protocol Animatable {
+    func animate(from type: AnimationFromType, delayMultiplier: Double)
+}
 
 extension Animatable where Self: UIView {
 

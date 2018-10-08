@@ -8,13 +8,14 @@
 
 import UIKit
 
+// MARK: - ResultViewController
 class ResultViewController: UIViewController {
 
-    //MARK: - OUTLETS
-    @IBOutlet weak var resultViewContainer: UIView!
-    @IBOutlet weak var okButton: UIButton!
+    //MARK: Outlets
+    @IBOutlet private weak var resultViewContainer: UIView!
+    @IBOutlet private weak var okButton: UIButton!
     
-    // MARK: - PROPERTIES
+    // MARK: Properties
     var victoryView: VictoryView?
     var defeatView: DefeatView?
 
@@ -24,7 +25,7 @@ class ResultViewController: UIViewController {
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        configure()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -36,36 +37,39 @@ class ResultViewController: UIViewController {
             defeatView?.frame = resultViewContainer.bounds
         }
     }
+}
 
-    // MARK: - SETUP
-    private func setup() {
-        okButton.standartRoundedCorners()
+// MARK: - Configuration
+private extension ResultViewController {
+    
+    func configure() {
+        okButton.standardRoundedCorners()
         okButton.setTitle(StringKey.General.ok.localizedUppercaseString, for: .normal)
-        setupResultView()
+        configureResultView()
     }
-
-    func setupResultView() {
-        if didWin == true {
-            didWinSetup()
-        } else {
-            didLoseSetup()
-        }
+    
+    func configureResultView() {
+        
+        didWin == true ? configureDidWin() : configureDidLose()
     }
-
-    private func didWinSetup() {
+    
+    func configureDidWin() {
         victoryView = VictoryView(frame: .zero)
         guard let victoryView = self.victoryView else { return }
-        victoryView.setup(with: timeTook)
+        victoryView.configure(with: timeTook)
         resultViewContainer.addSubview(victoryView)
     }
-
-    private func didLoseSetup() {
+    
+    func configureDidLose() {
         defeatView = DefeatView(frame: .zero)
         guard let defeatView = self.defeatView else { return }
         resultViewContainer.addSubview(defeatView)
     }
+}
 
-    // MARK: - ACTIONS
+// MARK: - Actions
+private extension ResultViewController {
+    
     @IBAction func okBtnAction(_ sender: UIButton) {
         navigationController?.popToRootViewController(animated: true)
     }

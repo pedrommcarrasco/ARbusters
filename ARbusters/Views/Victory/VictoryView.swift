@@ -8,15 +8,16 @@
 
 import UIKit
 
+// MARK:- VictoryView
 class VictoryView: UIView {
 
-    // MARK: - OUTLETS
-    @IBOutlet weak var timeLabel: CountingLabel!
-    @IBOutlet weak var highestScoreLabel: UILabel!
-    @IBOutlet weak var timeUnitLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
+    // MARK: Outlets
+    @IBOutlet private weak var timeLabel: CountingLabel!
+    @IBOutlet private weak var highestScoreLabel: UILabel!
+    @IBOutlet private weak var timeUnitLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
 
-    // MARK: - INIT
+    // MARK: Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
@@ -26,9 +27,12 @@ class VictoryView: UIView {
         super.init(coder: aDecoder)
         loadNib()
     }
+}
 
-    // MARK: - SETUP
-    func setup(with time: Int) {
+// MARK: - Configuration
+extension VictoryView {
+    
+    func configure(with time: Int) {
         titleLabel.text = StringKey.State.Victory.title.localizedUppercaseString
         highestScoreLabel.text = StringKey.State.Victory.newHighScore.localizedUppercaseString
         timeUnitLabel.text = StringKey.General.seconds.localizedString

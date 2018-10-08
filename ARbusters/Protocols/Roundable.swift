@@ -13,7 +13,7 @@ protocol Roundable { }
 
 extension Roundable where Self: UIView {
 
-    func standartRoundedCorners() {
+    func standardRoundedCorners() {
         self.layer.cornerRadius = self.bounds.height/2
     }
 

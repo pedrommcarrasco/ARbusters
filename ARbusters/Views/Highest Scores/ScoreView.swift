@@ -45,7 +45,7 @@ class ScoreView: UIView {
         noRecordsLabel.text = StringKey.Records.none.localizedString
         timeUnitLabel.text = StringKey.General.seconds.localizedString
 
-        backButton.standartRoundedCorners()
+        backButton.standardRoundedCorners()
         popupView.smallRoundedCorners()
 
         let highestScore = UserDefaults.standard.integer(forKey: Constants.highestScoreKey)
