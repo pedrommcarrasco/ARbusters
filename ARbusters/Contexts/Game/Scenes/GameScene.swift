@@ -14,6 +14,7 @@ protocol GameSceneProtocol: class {
     func gameScene(_ gameScene: GameScene, killed anchor: Anchor)
     func gameScene(_ gameScene: GameScene, picked buff: Anchor)
     func didAttemptWithBuff(in gameScene: GameScene)
+    func gameDidStart(in gameScene: GameScene)
 }
 
 class GameScene: SKScene {
@@ -145,7 +146,7 @@ class GameScene: SKScene {
             }
         }
 
-        if hasBuff {
+        if hasBuff, hitEnemie?.name != NodeType.boss.rawValue  {
             controllerDelegate?.didAttemptWithBuff(in: self)
         }
 

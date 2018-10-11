@@ -17,6 +17,7 @@ protocol NavigatorRepresentable {
     // MARK: Functions
     func transition(to viewController: UIViewController, as type: NavigationTransition)
     func dismiss()
+    func back()
     func pop()
 
     func displayBar()
@@ -58,8 +59,12 @@ extension Navigator: NavigatorRepresentable {
         navigationController.dismiss(animated: true, completion: nil)
     }
 
-    func pop() {
+    func back() {
         navigationController.popViewController(animated: true)
+    }
+
+    func pop() {
+        navigationController.popToRootViewController(animated: true)
     }
 
     // MARK: NavigationBar

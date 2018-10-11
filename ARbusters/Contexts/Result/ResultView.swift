@@ -22,6 +22,7 @@ class ResultView: UIView {
 
     // MARK: Constant
     private enum Constant {
+
         static let okMultiplier = 1.0
 
         enum Height {
@@ -36,8 +37,7 @@ class ResultView: UIView {
     }
 
     private let okButton: UIButton = .create {
-        $0.standardRoundedCorners()
-        $0.setTitle(StringKey.General.ok.localizedUppercaseString, for: .normal)
+        $0.setup(with: StringKey.General.ok.localizedUppercaseString)
     }
 
     private let resultView: AnimatableEntranceView
@@ -58,12 +58,21 @@ class ResultView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - Lifecycle
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        okButton.standardRoundedCorners()
+    }
 }
 
 // MARK: - AnimatableEntrance
 extension ResultView: AnimatableEntrance {
 
     func animateEntrance() {
+
+        resultView.animateEntrance()
         okButton.animate(from: .bottom, delayMultiplier: Constant.okMultiplier)
     }
 }
@@ -99,6 +108,8 @@ private extension ResultView {
     }
 
     func setupViews() {
+
+        backgroundColor = Color.white
 
         okButton.addTarget(self, action: #selector(okButtonAction), for: .touchUpInside)
     }

@@ -14,7 +14,7 @@ class VictoryView: UIView {
 
     // MARK: Outlets
     private let titleLabel: UILabel = .create {
-        $0.setup(with: StringKey.State.Victory.title.localizedUppercaseString)
+        $0.setup(with: StringKey.State.Victory.title.localizedUppercaseString, fontSize: Size.L, color: Color.pink)
     }
 
     private let timeStackView: TimeStackView
@@ -85,12 +85,12 @@ private extension VictoryView {
         highestScoreLabel
             .constrict(.top, to: timeStackView, attribute: .bottom, with: Spacing.M)
             .constrict(to: titleLabel, attributes: .leading, .trailing)
-            .constrictToParent(as: .greaterThanOrEqual, attributes: .bottom)
+            .constrictToParent(as: .lessThanOrEqual, attributes: .bottom)
     }
 
     func setupViews() {
 
         timeStackView.timeLabel.setup(fontSize: Size.XXXL)
-        timeStackView.timeUnitLabel.setup(with: StringKey.General.seconds)
+        timeStackView.timeUnitLabel.setup(with: StringKey.General.seconds.localizedString)
     }
 }

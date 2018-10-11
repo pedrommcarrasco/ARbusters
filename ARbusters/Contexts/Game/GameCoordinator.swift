@@ -69,7 +69,7 @@ private extension GameCoordinator {
 
     func dismiss() {
 
-        navigator.pop()
+        navigator.back()
         coordinatorDelegate?.coordinatorDidEnd(self)
     }
 

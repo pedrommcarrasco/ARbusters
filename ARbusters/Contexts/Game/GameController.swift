@@ -52,23 +52,14 @@ extension GameController {
     }
 
     @objc private func update() {
+
         time += 1
+        delegate?.controller(self, didUpdateTimeTo: time)
     }
 }
 
 // MARK: - Rules
 private extension GameController {
-
-    var isDefeat: Bool {
-
-        let counts = anchors.reduce((buffCount: 0, bossCount: 0)) {
-            if $1.type == NodeType.antiBossBuff { return (buffCount: $0.bossCount + 1, bossCount: $0.bossCount) }
-            else if $1.type == NodeType.boss { return (buffCount: $0.bossCount, bossCount: $0.bossCount + 1) }
-            return $0
-        }
-
-        return counts.bossCount > counts.buffCount
-    }
 
     var isVictory: Bool {
         return anchors.count == 0
@@ -77,6 +68,10 @@ private extension GameController {
 
 // MARK: - GameSceneProtocol
 extension GameController: GameSceneProtocol {
+
+    func gameDidStart(in gameScene: GameScene) {
+        startTimer()
+    }
 
     func gameScene(_ gameScene: GameScene, created anchor: Anchor) {
         anchors.append(anchor)
@@ -102,9 +97,7 @@ extension GameController: GameSceneProtocol {
 
     func didAttemptWithBuff(in gameScene: GameScene) {
 
-        if isDefeat {
             endTimer()
             delegate?.didLose(accordingTo: self)
-        }
     }
 }

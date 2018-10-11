@@ -33,7 +33,7 @@ class GameViewController: UIViewController {
     private let controller = GameController()
     private let musicProvider = MusicProvider()
 
-    private var volumeAction = MusicVolumeAction.unmute
+    private var volumeAction = MusicVolumeAction.mute
 
     // MARK: Initializer
     init(dependencies: Dependencies) {

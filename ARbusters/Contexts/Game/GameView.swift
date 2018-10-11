@@ -33,6 +33,7 @@ class GameView: UIView {
     weak var delegate: (GameViewDelegate & GameInterfaceViewDelegate)? {
         didSet { gameInterfaceView.delegate = delegate}
     }
+
     weak var logicDelegate: GameSceneProtocol?
 
     // MARK: Initializers
@@ -56,6 +57,7 @@ private extension GameView {
 
         addSubviews()
         defineConstraints()
+        setupViews()
     }
 
     func addSubviews() {
@@ -81,10 +83,12 @@ private extension GameView {
         gameView.delegate = self
 
         gameView.presentScene(scene)
+
+        logicDelegate?.gameDidStart(in: scene)
     }
 }
 
-// MARK: - Actions
+// MARK: - State
 extension GameView {
 
     func willAppear() {
@@ -100,9 +104,22 @@ extension GameView {
     }
 }
 
+// MARK: - Actions
+extension GameView {
+
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+
+        let view = super.hitTest(point, with: event)
+
+        if view is GameInterfaceView { return gameView }
+        else { return view }
+    }
+}
+// MARK: - ARSKViewDelegate
 extension GameView: ARSKViewDelegate {
 
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
+
         guard let anchor = anchor as? Anchor, let type = anchor.type else { return nil }
 
         let node = type.asSprite()
@@ -112,9 +129,10 @@ extension GameView: ARSKViewDelegate {
     }
 
     func sessionInterruptionEnded(_ session: ARSession) {
+
         guard let configuration = session.configuration else { return }
 
-        gameView.session.run(configuration, options: [.resetTracking,.removeExistingAnchors])
+        gameView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
 
     func session(_ session: ARSession, didFailWithError error: Error) {

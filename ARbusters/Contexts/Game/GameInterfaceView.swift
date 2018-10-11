@@ -39,8 +39,6 @@ class GameInterfaceView: UIView {
     }
     private let volumeButton: UIButton = .create {
         $0.setup(with: Image.Icon.Music.turnOff)
-        $0.setup(with: Image.Icon.Music.turnOn, for: .selected)
-        // TODO THIS AIN'T WORKING
     }
 
     // MARK: Properties
@@ -132,6 +130,10 @@ private extension GameInterfaceView {
     }
 
     @objc func volumeButtonAction() {
+
+        if volumeButton.image(for: .normal) == Image.Icon.Music.turnOn {
+            volumeButton.setup(with: Image.Icon.Music.turnOff)
+        } else { volumeButton.setup(with: Image.Icon.Music.turnOn) }
 
         volumeButton.touchAnimation()
         delegate?.didPressVolume(in: self)

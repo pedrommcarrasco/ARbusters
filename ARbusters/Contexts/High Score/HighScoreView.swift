@@ -22,6 +22,9 @@ class HighScoreView: UIView {
     // MARK: Constant
     private enum Constant {
 
+        enum Height {
+            static let back: CGFloat = 48.0
+        }
     }
 
     // MARK: Outlets
@@ -120,12 +123,13 @@ private extension HighScoreView {
             .constrictToParent(attributes: .top, .leading, .trailing, with: .all(Spacing.S))
 
         selectedView
-            .constrict(.top, to: titleLabel, attribute: .bottom, with: Spacing.S)
+            .constrict(.top, to: titleLabel, attribute: .bottom)
             .constrictToParent(attributes: .leading, .trailing, with: .all(Spacing.S))
-            .constrict(.bottom, to: backButton, attribute: .top, with: Spacing.S)
+            .constrict(.bottom, to: backButton, attribute: .top, with: Spacing.M)
 
         backButton
-            .constrictToParent(attributes: .bottom, .leading, .trailing, with: .all(Spacing.S))
+            .constrictToParent(attributes: .bottom, .leading, .trailing, with: .leading(Spacing.M) & .trailing(Spacing.M) & .bottom(Spacing.S))
+            .constrict(.height, with: Constant.Height.back)
     }
 
     func setupViews() {
@@ -133,7 +137,7 @@ private extension HighScoreView {
         backgroundColor = Color.transparentBlack
 
         timeStackView.timeLabel.setup(fontSize: Size.XXXL)
-        timeStackView.timeUnitLabel.setup(with: StringKey.General.seconds)
+        timeStackView.timeUnitLabel.setup(with: StringKey.General.seconds.localizedString)
 
         backButton.addTarget(self, action: #selector(backButtonAction), for: .touchUpInside)
     }

@@ -38,6 +38,13 @@ class HighScoreViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // Lifecycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        highScoreView.animateEntrance()
+    }
 }
 
 // MARK: - Configuration

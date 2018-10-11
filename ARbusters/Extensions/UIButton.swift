@@ -27,7 +27,7 @@ extension UIButton {
 // MARK: - Setup
 extension UIButton {
 
-    func setup(with title: String, fontSize: CGFloat) {
+    func setup(with title: String, fontSize: CGFloat = Size.M) {
         setTitle(title, for: .normal)
         backgroundColor = Color.pink
         titleLabel?.font = UIFont(name: Font.regular, size: fontSize)

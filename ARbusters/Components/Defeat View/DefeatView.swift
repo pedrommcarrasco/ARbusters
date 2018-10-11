@@ -19,7 +19,7 @@ class DefeatView: UIView {
 
     // MARK: Outlets
     private let titleLabel: UILabel = .create {
-        $0.setup(with: StringKey.State.Defeat.title.localizedUppercaseString)
+        $0.setup(with: StringKey.State.Defeat.title.localizedUppercaseString, fontSize: Size.L, color: Color.pink)
     }
 
     private let guideImageView: UIImageView = .create {
@@ -71,7 +71,7 @@ private extension DefeatView {
         guideImageView
             .constrict(.top, to: titleLabel, attribute: .bottom)
             .constrictToParent(attributes: .leading, .trailing)
-            .constrictToParent(as: .greaterThanOrEqual, attributes: .bottom)
+            .constrictToParent(as: .lessThanOrEqual, attributes: .bottom)
             .constrict(.height, with: 100.0)
     }
 }

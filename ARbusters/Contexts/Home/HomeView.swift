@@ -30,7 +30,7 @@ class HomeView: UIView {
         enum Height {
             static let banner: CGFloat = 200.0
             static let play: CGFloat = 64.0
-            static let highscore: CGFloat = 32.0
+            static let highscore: CGFloat = 48.0
         }
     }
 
@@ -40,7 +40,7 @@ class HomeView: UIView {
     }
 
     private let playButton: UIButton = .create {
-        $0.setup(with: StringKey.Home.play.localizedUppercaseString, fontSize: Size.M)
+        $0.setup(with: StringKey.Home.play.localizedUppercaseString)
     }
     private let highestScoreButton: UIButton = .create {
         $0.setup(with: StringKey.Home.highestScore.localizedUppercaseString, fontSize: Size.S)
