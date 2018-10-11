@@ -63,7 +63,6 @@
 		DF428A9E200D4DFF0093BEA7 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF428A9D200D4DFF0093BEA7 /* CountingLabel.swift */; };
 		DFFBE9E3200B86A70067844B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBE9E2200B86A70067844B /* ResultViewController.swift */; };
 		DFFBE9E5200B91890067844B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBE9E4200B91890067844B /* UIView.swift */; };
-		DFFBE9EA200BC0220067844B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBE9E9200BC0220067844B /* Utils.swift */; };
 		DFFBE9F4200C03820067844B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBE9F3200C03820067844B /* Constants.swift */; };
 		DFFBE9F7200C06310067844B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DFFBE9F9200C06310067844B /* Localizable.strings */; };
 		DFFBE9FB200C06AC0067844B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBE9FA200C06AC0067844B /* String.swift */; };
@@ -138,7 +137,6 @@
 		DF428AA1200D61510093BEA7 /* buff.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buff.wav; sourceTree = "<group>"; };
 		DFFBE9E2200B86A70067844B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		DFFBE9E4200B91890067844B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		DFFBE9E9200BC0220067844B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		DFFBE9F3200C03820067844B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DFFBE9F8200C06310067844B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DFFBE9FA200C06AC0067844B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -422,20 +420,11 @@
 				53ADB2B4216CDC7E00872035 /* Navigation */,
 				DFFE34FA20081FE300CAB509 /* Protocols */,
 				53ADB2AA216CD83900872035 /* Providers */,
-				DF0BC2BE2006BEA300848759 /* Storyboards */,
 				5325C57D216D30BA00B5CE3A /* Style */,
-				DFFE34F32008189300CAB509 /* Managers */,
 				DFFBE9E8200BC00E0067844B /* Utils */,
 				DF0BC2BF2006BEB900848759 /* Resources */,
 			);
 			path = ARbusters;
-			sourceTree = "<group>";
-		};
-		DF0BC2BE2006BEA300848759 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		DF0BC2BF2006BEB900848759 /* Resources */ = {
@@ -499,7 +488,6 @@
 		DFFBE9E8200BC00E0067844B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				DFFBE9E9200BC0220067844B /* Utils.swift */,
 				DFFBE9F3200C03820067844B /* Constants.swift */,
 			);
 			path = Utils;
@@ -527,13 +515,6 @@
 				DFFE34EF2008107100CAB509 /* theme.mp3 */,
 			);
 			path = "Background Music";
-			sourceTree = "<group>";
-		};
-		DFFE34F32008189300CAB509 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		DFFE34FA20081FE300CAB509 /* Protocols */ = {
@@ -704,7 +685,6 @@
 				DFFE34F920081BFB00CAB509 /* HomeViewController.swift in Sources */,
 				DF03334E200A217C0070523F /* DefeatView.swift in Sources */,
 				5325C591216D34D900B5CE3A /* UIStackView.swift in Sources */,
-				DFFBE9EA200BC0220067844B /* Utils.swift in Sources */,
 				DFFBE9FD200C0AA00067844B /* UIViewController.swift in Sources */,
 				534E553D216E610D0060B538 /* GameCoordinator.swift in Sources */,
 				530433E4216E0E8900EAD529 /* GameViewController.swift in Sources */,
