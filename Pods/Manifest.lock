@@ -1,0 +1,16 @@
+PODS:
+  - Constrictor (4.0.1)
+
+DEPENDENCIES:
+  - Constrictor
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Constrictor
+
+SPEC CHECKSUMS:
+  Constrictor: 494168680099a5fef7ab094a4d5259daa3750c3f
+
+PODFILE CHECKSUM: 5d22928aeb67d3b2dd396551e9bb1bc1d9ad97b2
+
+COCOAPODS: 1.6.0.beta.1

@@ -19,20 +19,20 @@ protocol Animatable {
 
 extension Animatable where Self: UIView {
 
-    func animate(from type: AnimationFromType, delayMultiplier: Double) {
+    func animate(from type: AnimationFromType, delayMultiplier: Double = 0.0) {
         let extra: CGFloat
         switch type {
         case .top:
-            extra = -Constants.animationExtra
+            extra = -45.0
         case .bottom:
-            extra = Constants.animationExtra
+            extra = 45.0
         }
 
         self.center.y += extra
         self.alpha = 0
-        UIView.animate(withDuration: Constants.mediumAnimationDuration,
-                       delay: Constants.standartDelay * delayMultiplier,
-                       usingSpringWithDamping: Constants.standartDamping,
+        UIView.animate(withDuration: Duration.M,
+                       delay: 0.25 * delayMultiplier,
+                       usingSpringWithDamping: Damping.M,
                        initialSpringVelocity: 0, options: .curveEaseOut,
                        animations: {
                         self.center.y += extra*(-1)

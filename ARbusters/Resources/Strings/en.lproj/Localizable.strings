@@ -10,7 +10,7 @@
 "home-highestScore" = "Fastest Run";
 
 "general-seconds" = "seconds";
-"general-back" = "back";
+"general-back" = "Back";
 "general-ok" = "OK";
 
 "alert-title" = "Alert";
@@ -22,4 +22,5 @@
 "won-newHighestScore" = "New Fastest Run!";
 
 "highestRecord-noRecords" = "Ops, it seems that you haven't played yet!";
+"highestRecord-title" =  "Fastest Run";
 

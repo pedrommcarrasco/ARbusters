@@ -8,7 +8,23 @@
 
 import Foundation
 
-enum MusicState {
-    case muted
-    case playing
+// MARK: - MusicAction
+enum MusicAction {
+    case start
+    case stop
+}
+
+// MARK: - MusicAction
+enum MusicVolumeAction {
+    case mute
+    case unmute
+}
+
+extension MusicVolumeAction {
+
+    func invert() -> MusicVolumeAction {
+
+        if self == .mute { return .unmute
+        } else { return .mute }
+    }
 }

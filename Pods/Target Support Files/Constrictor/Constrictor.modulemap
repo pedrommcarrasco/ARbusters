@@ -1,0 +1,6 @@
+framework module Constrictor {
+  umbrella header "Constrictor-umbrella.h"
+
+  export *
+  module * { export * }
+}

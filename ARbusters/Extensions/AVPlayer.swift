@@ -9,10 +9,10 @@
 import AVKit
 
 extension AVPlayer {
+
     convenience init?(name: String, extension ext: String) {
-        guard let url = Bundle.main.url(forResource: name, withExtension: ext) else {
-            return nil
-        }
+        guard let url = Bundle.main.url(forResource: name, withExtension: ext) else { return nil }
+
         self.init(url: url)
     }
 
