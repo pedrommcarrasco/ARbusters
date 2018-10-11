@@ -10,10 +10,11 @@ import ARKit
 
 
 protocol GameSceneProtocol: class {
-    func gameScene(gameScene: GameScene, created anchor: Anchor)
-    func gameScene(gameScene: GameScene, killed anchor: Anchor)
-    func gameScene(gameScene: GameScene, picked buff: Anchor)
-    func gameSceneDidShotWithBuff(gameScene: GameScene)
+    func gameScene(_ gameScene: GameScene, created anchor: Anchor)
+    func gameScene(_ gameScene: GameScene, killed anchor: Anchor)
+    func gameScene(_ gameScene: GameScene, picked buff: Anchor)
+    func didAttemptWithBuff(in gameScene: GameScene)
+    func gameDidStart(in gameScene: GameScene)
 }
 
 class GameScene: SKScene {
@@ -102,7 +103,7 @@ class GameScene: SKScene {
 
         anchor.type = type
         sceneView.session.add(anchor: anchor)
-        controllerDelegate?.gameScene(gameScene: self, created: anchor)
+        controllerDelegate?.gameScene(self, created: anchor)
 
         return type
     }
@@ -120,14 +121,14 @@ class GameScene: SKScene {
         anchor.type = .antiBossBuff
 
         sceneView.session.add(anchor: anchor)
-        controllerDelegate?.gameScene(gameScene: self, created: anchor)
+        controllerDelegate?.gameScene(self, created: anchor)
     }
 
     // MARK: - USER INTERACTION
     override func touchesBegan(_ touches: Set<UITouch>,
                                with event: UIEvent?) {
 
-        run(Sounds.shot)
+        run(Sound.shot)
         guard let hitEnemie = shot() else { return }
         killEnemie(from: hitEnemie)
     }
@@ -145,8 +146,8 @@ class GameScene: SKScene {
             }
         }
 
-        if hasBuff {
-            controllerDelegate?.gameSceneDidShotWithBuff(gameScene: self)
+        if hasBuff, hitEnemie?.name != NodeType.boss.rawValue  {
+            controllerDelegate?.didAttemptWithBuff(in: self)
         }
 
         hasBuff = false
@@ -162,11 +163,11 @@ class GameScene: SKScene {
             self.sceneView.session.remove(anchor: anchor)
         }
 
-        let group = SKAction.group([Sounds.hit, action])
+        let group = SKAction.group([Sound.hit, action])
         let sequence = [SKAction.wait(forDuration: Constants.soundFxDelay), group]
         hitEnemie.run(SKAction.sequence(sequence))
 
-        controllerDelegate?.gameScene(gameScene: self, killed: anchor)
+        controllerDelegate?.gameScene(self, killed: anchor)
     }
 
     private func detectIfPickedAntiBossWeapon() {
@@ -189,10 +190,10 @@ class GameScene: SKScene {
     }
 
     private func pickupAntiBossWeapon(_ anchor: Anchor) {
-        run(Sounds.buff)
+        run(Sound.buff)
         sceneView.session.remove(anchor: anchor)
         hasBuff = true
 
-        controllerDelegate?.gameScene(gameScene: self, picked: anchor)
+        controllerDelegate?.gameScene(self, picked: anchor)
     }
 }

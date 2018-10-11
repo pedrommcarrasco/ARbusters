@@ -8,16 +8,13 @@
 
 import UIKit
 
-extension UIView: Roundable, Animatable {
-    func loadNib() {
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName:  String(describing: type(of: self)), bundle: bundle)
+extension UIView: Roundable {}
 
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
+extension UIView: Animatable {}
 
-        view.frame = self.bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+extension UIView {
 
-        addSubview(view)
+    func addSubviews(_ views: UIView ...) {
+        views.forEach { self.addSubview($0) }
     }
 }

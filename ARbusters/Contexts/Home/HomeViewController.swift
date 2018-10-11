@@ -7,53 +7,69 @@
 //
 
 import UIKit
+import Constrictor
+
+// MARK: - HomeViewControllerNavigationDelegate
+protocol HomeViewControllerNavigationDelegate {
+
+    // MARK: Functions
+    func didPressPlay(in controller: HomeViewController)
+    func didPressHighestScore(in controller: HomeViewController)
+}
 
 // MARK: - HomeViewController
 class HomeViewController: UIViewController {
+    typealias Dependencies = PersistenceDependency
     
-    // MARK: Constants
-    private enum Constant {
-        static let howToPlayMultiplier = 1.0
-        static let playButtonMultipler = 2.0
-        static let highestScoreMultiplier = 3.0
+    // MARK: Outlets
+    private let homeView: HomeView
+
+    // MARK: Properties
+    var navigationDelegate: HomeViewControllerNavigationDelegate?
+
+    // MARK: Private Properties
+    private let dependencies: Dependencies
+
+    // MARK: Initializer
+    init(dependencies: Dependencies) {
+
+        self.dependencies = dependencies
+        self.homeView = HomeView()
+
+        super.init(nibName: nil, bundle: nil)
+
+        homeView.delegate = self
     }
 
-    // MARK: Outlets
-    @IBOutlet private weak var playButton: UIButton!
-    @IBOutlet private weak var highestScoreButton: UIButton!
-    @IBOutlet private weak var howToPlayImageView: UIImageView!
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
-        howToPlayImageView.animate(from: .top, delayMultiplier: Constant.howToPlayMultiplier)
-        playButton.animate(from: .bottom, delayMultiplier: Constant.playButtonMultipler)
-        highestScoreButton.animate(from: .bottom, delayMultiplier: Constant.highestScoreMultiplier)
+        homeView.animateEntrance()
     }
 }
 
 // MARK: - Configuration
-private extension HomeViewController {
-    
-    func configure() {
-        playButton.setTitle(StringKey.Home.play.localizedUppercaseString, for: .normal)
-        highestScoreButton.setTitle(StringKey.Home.highestScore.localizedUppercaseString, for: .normal)
-        
-        playButton.standardRoundedCorners()
-        highestScoreButton.standardRoundedCorners()
+extension HomeViewController {
+
+    override func loadView() {
+        view = homeView
     }
 }
 
-// MARK: - Actions
-private extension HomeViewController {
-    
-    @IBAction func highestScoreBtnAction(_ sender: UIButton) {
-        view.addSubview(ScoreView(frame: view.bounds))
+
+// MARK: - HomeViewDelegate
+extension HomeViewController: HomeViewDelegate {
+
+    func didPressPlay(in view: HomeView) {
+        navigationDelegate?.didPressPlay(in: self)
+    }
+
+    func didPressHighestScore(in view: HomeView) {
+        navigationDelegate?.didPressHighestScore(in: self)
     }
 }
