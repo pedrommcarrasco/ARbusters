@@ -10,5 +10,6 @@ import ARKit
 
 // MARK: - Anchor
 class Anchor: ARAnchor {
+
     var type: NodeType?
 }

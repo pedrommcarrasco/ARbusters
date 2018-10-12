@@ -8,192 +8,212 @@
 
 import ARKit
 
-
+// MARK: - GameSceneProtocol
 protocol GameSceneProtocol: class {
+
+    // MARK: Properties
+    var hasBuff: Bool { get set }
+
+    // MARK: Functions
+    func gameDidStart(in gameScene: GameScene)
     func gameScene(_ gameScene: GameScene, created anchor: Anchor)
     func gameScene(_ gameScene: GameScene, killed anchor: Anchor)
     func gameScene(_ gameScene: GameScene, picked buff: Anchor)
-    func didAttemptWithBuff(in gameScene: GameScene)
-    func gameDidStart(in gameScene: GameScene)
+    func didFailWithBuff(in gameScene: GameScene)
 }
 
+// MARK; - GameScene
 class GameScene: SKScene {
 
-    // MARK: - PROPERTIES
+    // MARK: Constant
+    private enum Constant {
+        static let gameSize = CGSize(width: 2, height: 2)
+        static let level = SKScene(fileNamed: "LevelOne")
+        static let buffMinimumDistance: Float = 0.1
+        static let soundFxDelay = 0.25
+    }
+
+    // MARK: Nodes
+    private let sight = NodeType.sight.asSprite()
+
+    // MARK: Properties
     weak var controllerDelegate: GameSceneProtocol?
-    var sceneView: ARSKView { return view as! ARSKView}
-    let gameSize = CGSize(width: 2, height: 2)
-    var isAugmentedRealityReady = false
 
-    // MARK: - PROPERTIES ( GAME LOGIC )
-    var sight: SKSpriteNode! = NodeType.sight.asSprite()
-    var hasBuff = false
+    private lazy var sceneView: ARSKView = {
+        view as? ARSKView ?? ARSKView()
+    }()
 
-    // MARK: - LIFECYCLE
+    private let gameSize = Constant.gameSize
+    private var isConfigured = false
+    private var hasBuff: Bool { return controllerDelegate?.hasBuff ?? false }
+
+    // MARK: Lifecycle
     override func update(_ currentTime: TimeInterval) {
-        if !isAugmentedRealityReady {
-            setupWorld()
-        }
 
-        setupLight()
-        detectIfPickedAntiBossWeapon()
-}
+        if !isConfigured { configure() }
 
-    // MARK: - LIFECYCLE
+        configureLighting()
+        pickBuffRoutine()
+    }
+
     override func didMove(to view: SKView) {
         srand48(Int(Date.timeIntervalSinceReferenceDate))
         addChild(self.sight)
     }
+}
 
-    // MARK: - SETUP
-    private func setupWorld() {
-        guard let currentFrame = sceneView.session.currentFrame
-            else { return }
+// MARK: - Configuration
+private extension GameScene {
 
-        createEnemies(in: currentFrame)
+    func configure() {
 
-        isAugmentedRealityReady = true
+        guard let currentFrame = sceneView.session.currentFrame else { return }
+
+        configureEnemies(in: currentFrame)
+
+        isConfigured = true
     }
 
-    private func setupLight() {
-        guard let currentFrame = sceneView.session.currentFrame,
-            let lightEstimate = currentFrame.lightEstimate else { return }
-        
-        let neutralIntensity = Constants.neutralLight
-        let ambientIntensity = min(lightEstimate.ambientIntensity, neutralIntensity)
+    private func configureLighting() {
 
-        let blendFactor = 1 - ambientIntensity/neutralIntensity
+        let blendFactor = GameLighting.blendFactor(lightEstimate: sceneView.session.currentFrame?.lightEstimate)
 
-        for node in children {
-            guard let ghost = node as? SKSpriteNode else { return }
-            ghost.color = .black
-            ghost.colorBlendFactor = blendFactor
+        children.forEach {
+            let sprite = $0 as? SKSpriteNode
+            sprite?.color = .black
+            sprite?.colorBlendFactor = blendFactor
         }
     }
 
-    // MARK: - NODES  SETUP
-    private func createEnemies(in frame: ARFrame) {
-        guard let scene = SKScene(fileNamed: "LevelOne") else { return }
+    private func configureEnemies(in frame: ARFrame) {
+        guard let scene = Constant.level else { return } // TODO
 
-        for node in scene.children {
-            if let type = createAnchor(in: scene, with: frame, at: node),
-                type == .boss {
+        scene.children.forEach {
+            guard let anchor = self.createAnchor(in: scene, with: frame, at: $0) else { return }
 
-                createAntiBossWeapon(in: frame)
+            if anchor.type == .boss {
+                let buff = self.createBuff(in: frame)
+                sceneView.session.add(anchor: buff)
+                controllerDelegate?.gameScene(self, created: buff)
             }
+
+            self.sceneView.session.add(anchor: anchor)
+            self.controllerDelegate?.gameScene(self, created: anchor)
         }
     }
+}
 
-    private func createAnchor(in scene: SKScene, with frame: ARFrame, at node: SKNode) -> NodeType? {
-        guard let name = node.name,
-            let type = NodeType(rawValue: name) else { return nil }
+// MARK: - Creation
+private extension GameScene {
 
-        var translation = matrix_identity_float4x4
+    private func createAnchor(in scene: SKScene, with frame: ARFrame, at node: SKNode) -> Anchor? {
 
-        let x = node.position.x / scene.size.width
-        let y = node.position.y / scene.size.height
+        guard let name = node.name, let type = NodeType(rawValue: name) else { return nil }
 
-        translation.columns.3.x = Float(x * gameSize.width)
-        translation.columns.3.y = Float(drand48() - 0.5)
-        translation.columns.3.z = Float(y * gameSize.height)
-
-        let transform = frame.camera.transform * translation
-
-        let anchor = Anchor(transform: transform)
+        let anchor = Anchor(
+            transform: GameTransformation.enemyTransform(node, in: scene, with: gameSize, frame: frame)
+        )
 
         anchor.type = type
-        sceneView.session.add(anchor: anchor)
-        controllerDelegate?.gameScene(self, created: anchor)
 
-        return type
+        return anchor
     }
 
-    private func createAntiBossWeapon(in frame: ARFrame) {
-        var translation = matrix_identity_float4x4
+    private func createBuff(in frame: ARFrame) -> Anchor {
 
-        translation.columns.3.x = Float(drand48()*2 - 1)
-        translation.columns.3.z = -Float(drand48()*2 - 1)
-        translation.columns.3.y = Float(drand48() - 0.5)
-
-        let transform = frame.camera.transform * translation
-
-        let anchor = Anchor(transform: transform)
+        let anchor = Anchor(transform: GameTransformation.buffTransform(frame: frame))
         anchor.type = .antiBossBuff
 
-        sceneView.session.add(anchor: anchor)
-        controllerDelegate?.gameScene(self, created: anchor)
+        return anchor
     }
+}
 
-    // MARK: - USER INTERACTION
-    override func touchesBegan(_ touches: Set<UITouch>,
-                               with event: UIEvent?) {
+// MARK: - User Interface Actions
+extension GameScene {
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        shot()
+    }
+}
+
+// MARK: - Game Actions
+private extension GameScene {
+
+    func shot() {
 
         run(Sound.shot)
-        guard let hitEnemie = shot() else { return }
-        killEnemie(from: hitEnemie)
+
+        let enemyHitted = hittedEnemy()
+        if verifyIfFailedShotWithBuff(at: enemyHitted) { controllerDelegate?.didFailWithBuff(in: self) }
+
+        controllerDelegate?.hasBuff = false
+
+        guard let enemyShot = enemyHitted else { return }
+        killEnemy(from: enemyShot)
+    }
+}
+
+// MARK: - Routines
+private extension GameScene {
+
+    func pickBuffRoutine() {
+
+        guard let frame = sceneView.session.currentFrame else { return }
+
+        frame.anchors
+            .filter { verifyIfPickedBuff($0, in: frame) }
+            .forEach { self.pickupBuff($0) }
+    }
+}
+
+// MARK: - Detections
+private extension GameScene {
+
+    func hittedEnemy() -> SKNode? {
+
+        return nodes(at: sight.position).first { self.verifyIfHittedEnemy($0) }
+    }
+}
+
+// MARK: - Verifications
+private extension GameScene {
+
+    func verifyIfPickedBuff(_ anchor: ARAnchor, in frame: ARFrame) -> Bool {
+
+        guard sceneView.node(for: anchor)?.name == NodeType.antiBossBuff.rawValue else { return false }
+        return simd_distance(anchor.transform.columns.3, frame.camera.transform.columns.3) < Constant.buffMinimumDistance
     }
 
-    private func shot() -> SKNode? {
-        let location = sight.position
-        let hitNodes = nodes(at: location)
-
-        var hitEnemie: SKNode?
-        for node in hitNodes {
-            if node.name == NodeType.ghost.rawValue ||
-                (node.name == NodeType.boss.rawValue && hasBuff) {
-                hitEnemie = node
-                break
-            }
-        }
-
-        if hasBuff, hitEnemie?.name != NodeType.boss.rawValue  {
-            controllerDelegate?.didAttemptWithBuff(in: self)
-        }
-
-        hasBuff = false
-
-        return hitEnemie
+    func verifyIfHittedEnemy(_ node: SKNode) -> Bool {
+        return node.name == NodeType.ghost.rawValue || (node.name == NodeType.boss.rawValue && hasBuff)
     }
 
-    private func killEnemie(from node: SKNode?) {
-        guard let hitEnemie = node,
-            let anchor = sceneView.anchor(for: hitEnemie) as? Anchor else { return }
+    func verifyIfFailedShotWithBuff(at enemy: SKNode?) -> Bool {
+        return hasBuff && enemy?.name != NodeType.boss.rawValue
+    }
+}
 
-        let action = SKAction.run {
-            self.sceneView.session.remove(anchor: anchor)
-        }
+// MARK: - Logic
+private extension GameScene {
 
+    private func killEnemy(from node: SKNode) {
+
+        guard let anchor = sceneView.anchor(for: node) as? Anchor else { return }
+
+        let action = SKAction.run { self.sceneView.session.remove(anchor: anchor) }
         let group = SKAction.group([Sound.hit, action])
-        let sequence = [SKAction.wait(forDuration: Constants.soundFxDelay), group]
-        hitEnemie.run(SKAction.sequence(sequence))
+        let sequence = [SKAction.wait(forDuration: Constant.soundFxDelay), group]
+        node.run(SKAction.sequence(sequence))
 
         controllerDelegate?.gameScene(self, killed: anchor)
     }
 
-    private func detectIfPickedAntiBossWeapon() {
-        guard let frame = sceneView.session.currentFrame else { return }
-        for anchor in frame.anchors {
+    private func pickupBuff(_ anchor: ARAnchor) {
 
-            guard let node = sceneView.node(for: anchor),
-                node.name == NodeType.antiBossBuff.rawValue,
-                let anchor = anchor as? Anchor
-                else { continue }
-
-            let distance = simd_distance(anchor.transform.columns.3,
-                                         frame.camera.transform.columns.3)
-
-            if distance < Constants.pickMinimumDistance {
-                pickupAntiBossWeapon(anchor)
-                break
-            }
-        }
-    }
-
-    private func pickupAntiBossWeapon(_ anchor: Anchor) {
         run(Sound.buff)
         sceneView.session.remove(anchor: anchor)
-        hasBuff = true
 
+        guard let anchor = anchor as? Anchor else { return }
         controllerDelegate?.gameScene(self, picked: anchor)
     }
 }
