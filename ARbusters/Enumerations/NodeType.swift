@@ -16,7 +16,7 @@ enum NodeType: String {
 }
 
 extension NodeType {
-    func asSprite() -> SKSpriteNode{
+    func asSprite() -> SKSpriteNode {
         return SKSpriteNode(imageNamed: self.rawValue)
     }
 }

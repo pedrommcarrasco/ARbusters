@@ -27,6 +27,8 @@ final class GameController {
     // MARK: Properties
     weak var delegate: GameControllerDelegate?
 
+    var hasBuff = false
+
     // MARK: Private Properties
     private var anchors = [Anchor]()
     private (set) var timer = Timer()
@@ -91,13 +93,14 @@ extension GameController: GameSceneProtocol {
 
     func gameScene(_ gameScene: GameScene, picked buff: Anchor) {
 
+        hasBuff = true
         guard let index = anchors.index(of: buff) else { return }
         anchors.remove(at: index)
     }
 
-    func didAttemptWithBuff(in gameScene: GameScene) {
+    func didFailWithBuff(in gameScene: GameScene) {
 
-            endTimer()
-            delegate?.didLose(accordingTo: self)
+        endTimer()
+        delegate?.didLose(accordingTo: self)
     }
 }
