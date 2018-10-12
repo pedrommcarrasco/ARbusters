@@ -9,13 +9,15 @@
 import Foundation
 
 // MARK: - DependencyContainer
-final class DependencyContainer: PersistenceDependency {
+final class DependencyContainer: PersistenceDependency & MusicDependency {
 
     // MARK: Properties
     let persistenceProvider: PersistenceProvidable
+    let musicProvider: MusicProvidable
 
     // MARK: Init
     init() {
         self.persistenceProvider = PersistenceProvider()
+        self.musicProvider = MusicProvider()
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		205A1FBD2171478200B41D36 /* MusicDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205A1FBC2171478200B41D36 /* MusicDependency.swift */; };
 		2083E0A1216BD84E0003F599 /* StringKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083E0A0216BD84E0003F599 /* StringKey.swift */; };
 		530433E4216E0E8900EAD529 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530433E3216E0E8900EAD529 /* GameViewController.swift */; };
 		530433E6216E0E9C00EAD529 /* GameInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530433E5216E0E9C00EAD529 /* GameInterfaceView.swift */; };
@@ -79,6 +80,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		205A1FBC2171478200B41D36 /* MusicDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDependency.swift; sourceTree = "<group>"; };
 		2083E0A0216BD84E0003F599 /* StringKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringKey.swift; sourceTree = "<group>"; };
 		23CB4E8B9AAC6998BD35FB8F /* Pods-ARbusters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARbusters.debug.xcconfig"; path = "Target Support Files/Pods-ARbusters/Pods-ARbusters.debug.xcconfig"; sourceTree = "<group>"; };
 		530433E3216E0E8900EAD529 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				533BA4AE216CE62E003F2209 /* DependencyContainer.swift */,
 				533BA4B0216CE641003F2209 /* PersistenceDependency.swift */,
+				205A1FBC2171478200B41D36 /* MusicDependency.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -432,9 +435,8 @@
 				53ADB2B4216CDC7E00872035 /* Navigation */,
 				DFFE34FA20081FE300CAB509 /* Protocols */,
 				53ADB2AA216CD83900872035 /* Providers */,
-				5325C57D216D30BA00B5CE3A /* Style */,
-				DFFBE9E8200BC00E0067844B /* Utils */,
 				DF0BC2BF2006BEB900848759 /* Resources */,
+				5325C57D216D30BA00B5CE3A /* Style */,
 			);
 			path = ARbusters;
 			sourceTree = "<group>";
@@ -495,13 +497,6 @@
 				DF10B4512008F7D9007DC248 /* LLPIXEL3.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		DFFBE9E8200BC00E0067844B /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		DFFE34EB20080FD900CAB509 /* Extensions */ = {
@@ -673,6 +668,7 @@
 				5325C5A7216D53FE00B5CE3A /* ResultView.swift in Sources */,
 				5325C5A3216D480E00B5CE3A /* HighScoreView.swift in Sources */,
 				DFFBE9FB200C06AC0067844B /* String.swift in Sources */,
+				205A1FBD2171478200B41D36 /* MusicDependency.swift in Sources */,
 				DF0BC2AB2006BC9F00848759 /* AppDelegate.swift in Sources */,
 				DF0BC2D62006C26600848759 /* GameScene.swift in Sources */,
 				DFFBE9E3200B86A70067844B /* ResultViewController.swift in Sources */,

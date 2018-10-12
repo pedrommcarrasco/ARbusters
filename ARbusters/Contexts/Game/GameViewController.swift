@@ -20,7 +20,7 @@ protocol GameViewControllerNavigationDelegate: class {
 
 // MARK: - GameViewController
 class GameViewController: UIViewController {
-    typealias Dependencies = PersistenceDependency
+    typealias Dependencies = PersistenceDependency & MusicDependency
 
     // MARK: Outlets
     private let gameView: GameView
@@ -31,8 +31,6 @@ class GameViewController: UIViewController {
     // MARK: Private Properties
     private let dependencies: Dependencies
     private let controller = GameController()
-    private let musicProvider = MusicProvider()
-
     private var volumeAction = MusicVolumeAction.mute
 
     // MARK: Initializer
@@ -55,7 +53,7 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        musicProvider.apply(.start)
+        dependencies.musicProvider.apply(.start)
         gameView.willAppear()
     }
 
@@ -64,7 +62,7 @@ class GameViewController: UIViewController {
 
         gameView.willDisappear()
         controller.endTimer()
-        musicProvider.apply(.stop)
+        dependencies.musicProvider.apply(.stop)
     }
 }
 
@@ -85,7 +83,7 @@ extension GameViewController: GameInterfaceViewDelegate {
 
     func didPressVolume(in view: GameInterfaceView) {
 
-        musicProvider.apply(volumeAction)
+        dependencies.musicProvider.apply(volumeAction)
         volumeAction = volumeAction.invert()
     }
 }

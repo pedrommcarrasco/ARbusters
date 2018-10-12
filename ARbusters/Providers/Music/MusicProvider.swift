@@ -33,7 +33,7 @@ final class MusicProvider {
     }
 }
 
-extension MusicProvider {
+extension MusicProvider: MusicProvidable {
 
     func apply(_ action: MusicAction) {
 
