@@ -86,7 +86,7 @@ private extension GameScene {
     }
 
     private func configureEnemies(in frame: ARFrame) {
-        guard let scene = Constant.level else { return } // TODO
+        guard let scene = Constant.level else { return }
 
         scene.children.forEach {
             guard let anchor = self.createAnchor(in: scene, with: frame, at: $0) else { return }

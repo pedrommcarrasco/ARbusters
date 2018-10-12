@@ -33,7 +33,7 @@ final class PersistenceProvider: PersistenceProvidable {
 
     func isHighestScore(_ score: Int) -> Bool {
 
-        if score > highestScore {
+        if score < highestScore {
             userDefaults.set(score, forKey: Constant.highestScoreKey)
             return true
         }
